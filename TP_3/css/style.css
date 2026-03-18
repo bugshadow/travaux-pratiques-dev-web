@@ -1,0 +1,611 @@
+/* ============================
+   TP3 — Site Entreprise "GPM"
+   Thème : Blanc / Crème (Maroc) Pro
+   ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+/* ---------- Reset & Variables ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #FDFBF7;
+    /* Crème doux */
+    --surface: #FFFFFF;
+    /* Blanc */
+    --border: #E8E3D9;
+    --accent: #B85B43;
+    /* Terracotta Marocain */
+    --accent-h: #8A402D;
+    --accent-l: #F4EBE8;
+    --text: #2D3748;
+    --muted: #718096;
+    --radius: 8px;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 18px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo,
+legend,
+summary {
+    font-family: 'Montserrat', sans-serif;
+    color: #1A202C;
+}
+
+a {
+    color: var(--accent);
+    transition: .2s;
+}
+
+a:hover {
+    color: var(--accent-h);
+    text-decoration: none;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- Navigation Commune ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .02);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Style pour l'image GPM */
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent);
+}
+
+/* ---------- Main Structure ---------- */
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(184, 91, 67, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--accent-h);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(184, 91, 67, 0.3);
+    color: #fff;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* ---------- Hero (Accueil) ---------- */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, var(--accent-l), var(--bg));
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+}
+
+/* ---------- Services & Témoignages (Accueil) ---------- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .02);
+    text-align: center;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .06);
+    border-color: var(--accent-l);
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* ---------- Team (About) ---------- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+figure {
+    background: var(--surface);
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    transition: transform .3s, box-shadow .3s;
+}
+
+figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Image de profil par défaut (Silouhette grise classique) */
+.virtual-avatar {
+    width: 120px;
+    height: 120px;
+    background-color: #E2E8F0;
+    /* Gris clair typique */
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A0AEC0'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    border: 3px solid var(--surface);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+figcaption h3 {
+    margin-bottom: .2rem;
+    font-size: 1.3rem;
+}
+
+figcaption p {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------- Services Details (Services) ---------- */
+details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+summary {
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--bg);
+    user-select: none;
+    transition: color .2s;
+}
+
+summary:hover {
+    color: var(--accent);
+}
+
+details[open] summary {
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--accent);
+}
+
+.details-content {
+    padding: 2rem;
+    font-size: 1.05rem;
+}
+
+/* Tableau Tarifs */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3rem;
+    background: var(--surface);
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.pricing-table th {
+    background: var(--bg);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+.pricing-table td {
+    color: var(--muted);
+}
+
+.pricing-table .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ---------- Gallery (Portfolio Avancé) ---------- */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+
+    /* Fallback Image de profil par défaut aux couleurs du site */
+    background-color: var(--bg);
+    color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23B85B43'%3E%3Cpath d='M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z'/%3E%3C/svg%3E");
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}
+
+/* Texte alternatif (Alt) affiché sous l'icone cassée */
+.project-image-wrapper img::after {
+    content: attr(alt);
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.project-card:hover .project-image-wrapper img {
+    transform: scale(1.05);
+    /* Zoom léger au survol */
+}
+
+.project-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.project-category {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(184, 91, 67, 0.3);
+}
+
+.project-content {
+    padding: 2.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.6rem;
+    color: #1A202C;
+    margin-bottom: 1rem;
+}
+
+.project-desc {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.project-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-link:hover {
+    gap: 1rem;
+    /* Animation de la flèche &rarr; */
+}
+
+/* Responsive pour la Galerie */
+@media (max-width: 900px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Contact ---------- */
+.contact-layout {
+    gap: 4rem;
+}
+
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.05rem;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    transition: border .3s;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+textarea {
+    height: 180px;
+    resize: vertical;
+}
+
+.iframe-container {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: .8rem;
+}
+
+.footer-col ul a {
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+.footer-col ul a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        /* Simplification pour mobile */
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+}
+/* ---------- Animations JS (fade-in) ---------- */
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }

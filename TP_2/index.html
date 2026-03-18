@@ -1,79 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP 2</title>
+    <meta name="description" content="Formulaire d'inscription complet avec validation HTML5.">
+    <title>Inscription — Bugshadow</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Formulaire</h1>
-    <form action="" method="post">
-        <p>Entrez les informations suivants :</p>
-        <fieldset>
-            <legend>Informations personnelles</legend>
-                <label for="nom">Nom :</label>
-                <input type ="text" name="nom" placeholder="Entrer votre nom" required autocomplete="family-name"> <br>
-                <label for="prenom">Prénom :</label>
-                <input type ="text" name="prenom" placeholder="Entrer votre prenom" required autocomplete="given-name"> <br>
-                <label for="email">Email :</label>
-                <input type ="email" name="email" placeholder="Entrer votre email" required autocomplete="email"><br>
-                <label for="telephone">telephone :</label>
-                <input type="tel" name="telephone" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$" autocomplete="tel"><br>
-                <label for="date">Date de naissance :</label>
-                <input type="date" name="date" placeholder="Entrer votre date de naissance" min="2008-01-01"><br>
-        </fieldset>
-        <fieldset>
-            <legend>Mot de passe</legend>
-                <label for="password">Entrer votre mot de passe : </label>
-                <input type="password" name="password" placeholder="Entrer votre mot de passe" autocomplete="new-password" title="8 caractères minimum, 1 majuscule, 1 chiffre" pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}" required><br>
-                <label for="confirme">Confirmer votre mot de passe :</label>
-                <input type="password" name="confirme" placeholder="Confirmer votre mot de passe" autocomplete="new-password" required title="Veuillez saisir le même mot de passe"><br>
-        </fieldset>
-        <fieldset>
-            <legend>Préférences</legend>
-                <label for="pays">Selectionez votre pays :</label>
-                <select name="pays" required>
-                    <option value="maroc">Maroc</option>
-                    <option value="USA">USA</option>
-                    <option value="iran">Iran</option>
-                    <option value="italie">Italie</option>
-                </select>
-                
-                <label>Pays :</label>
-                <input list="pays">
-                <datalist id="pays">
-                    <option value="Maroc">
-                    <option value="France">
-                    <option value="uk">
-                </datalist>
-                <br>
-                <label for="genre">Genre :</label>
-                <input type="radio" id="homme" name="genre" value="homme" required>
-                <label for="homme">Homme</label>
-                <input type="radio" id="femme" name="genre" value="femme">
-                <label for="femme">Femme</label>
-                <br> 
-                <label for="interet"> Centre d'interet :</label>
-                <input type="checkbox" name="interet" value="sport">
-                <label for="sport">Sport</label>
-                <input type="checkbox" name="interet" value="video games">
-                <label for="video games">Video Games</label>
-        </fieldset>
-        <fieldset>
-            <legend>Biographie et photo</legend>
-                <label for="bigraphie">Biographie :</label> <br>
-                <textarea name="bigraphie" maxlength="500"></textarea><br>
-                <label for="image">uploader une image :</label>
-                <input type="file" name="image"> <br>
-        </fieldset>
-        <fieldset>
-            <legend>Acceptation</legend>
-                <label for="CGU">Acceptation CGU</label>
-                <input type="checkbox" name="CGU" value="accepte" required>
-                
-        </fieldset>
-        <br>
-        <input type="submit" value="Envoyer">
-    </form>
+
+    <header class="page-header">
+        <span class="chip">TP 2</span>
+        <h1>Créer un compte</h1>
+        <p>Remplissez le formulaire ci-dessous pour vous inscrire.</p>
+    </header>
+
+    <div class="form-card" role="main">
+
+        <form action="#" method="post" novalidate id="inscription-form" autocomplete="on">
+
+            <fieldset>
+                <legend>Informations personnelles</legend>
+
+                <div class="field-row">
+                    <div class="form-group">
+                        <label for="nom">Nom <span class="req">*</span></label>
+                        <input type="text" id="nom" name="nom" required autocomplete="family-name" minlength="2">
+                        <span class="field-error" id="nom-error">Veuillez entrer votre nom de famille.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom <span class="req">*</span></label>
+                        <input type="text" id="prenom" name="prenom" required autocomplete="given-name" minlength="2">
+                        <span class="field-error" id="prenom-error">Veuillez entrer votre prénom.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                        <span class="field-error" id="email-error">Format d'e-mail invalide.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$"
+                            autocomplete="tel">
+                        <span class="field-error" id="tel-error">Format invalide. Ex : 0612345678</span>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="datenaissance">Date de naissance <span class="req">*</span></label>
+                        <input type="date" id="datenaissance" name="datenaissance" required max="2008-01-01"
+                            autocomplete="bday">
+                        <span class="hint" id="date-hint">Vous devez avoir au moins 18 ans.</span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sécurité du compte</legend>
+
+                <div class="field-row">
+                    <div class="form-group">
+                        <label for="password">Mot de passe <span class="req">*</span></label>
+                        <input type="password" id="password" name="password" required autocomplete="new-password"
+                            pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}">
+                        <span class="hint" id="pwd-hint">8 caractères min., 1 majuscule, 1 chiffre.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirme">Confirmation <span class="req">*</span></label>
+                        <input type="password" id="confirme" name="confirme" required autocomplete="new-password">
+                        <span class="field-error" id="confirm-error" style="display:none">Les mots de passe ne
+                            correspondent pas.</span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Préférences</legend>
+
+                <div class="field-row">
+                    <div class="form-group">
+                        <label for="pays-select">Pays <span class="req">*</span></label>
+                        <select id="pays-select" name="pays" required autocomplete="country">
+                            <option value="">— Sélectionnez —</option>
+                            <option value="MA">Maroc</option>
+                            <option value="FR">France</option>
+                            <option value="DZ">Algérie</option>
+                            <option value="TN">Tunisie</option>
+                            <option value="US">États-Unis</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pays-libre">Autre pays</label>
+                        <input type="text" id="pays-libre" name="pays-libre" list="pays-datalist" autocomplete="off">
+                        <datalist id="pays-datalist">
+                            <option value="Maroc">
+                            <option value="France">
+                            <option value="Sénégal">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Genre <span class="req">*</span></label>
+                        <div class="choices">
+                            <label class="choice-item"><input type="radio" name="genre" value="homme" required>
+                                Homme</label>
+                            <label class="choice-item"><input type="radio" name="genre" value="femme"> Femme</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Centres d'intérêt</label>
+                        <div class="choices">
+                            <label class="choice-item"><input type="checkbox" name="interet" value="sport">
+                                Sport</label>
+                            <label class="choice-item"><input type="checkbox" name="interet" value="gaming"> Jeux
+                                vidéo</label>
+                            <label class="choice-item"><input type="checkbox" name="interet" value="ia"> IA</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Biographie &amp; photo</legend>
+
+                <div class="form-group">
+                    <label for="biographie">Biographie <span class="req">*</span></label>
+                    <textarea id="biographie" name="biographie" maxlength="500" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Photo de profil</label>
+                    <input type="file" id="photo" name="photo" accept="image/png, image/jpeg, image/webp">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Conditions générales</legend>
+
+                <div class="cgu-wrapper">
+                    <input type="checkbox" id="CGU" name="CGU" value="accepte" required>
+                    <label for="CGU">
+                        J'accepte les <a href="#">Conditions d'Utilisation</a>. <span class="req">*</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <p>Les champs avec <span class="req">*</span> sont obligatoires.</p>
+                <button type="submit" class="btn-submit">S'inscrire</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('inscription-form');
+        form.addEventListener('submit', function (e) {
+            const pwd = document.getElementById('password');
+            const conf = document.getElementById('confirme');
+            const errConf = document.getElementById('confirm-error');
+            if (pwd.value !== conf.value) {
+                e.preventDefault();
+                conf.setCustomValidity('Mismatch');
+                errConf.style.display = 'block';
+                conf.focus();
+            } else {
+                conf.setCustomValidity('');
+                errConf.style.display = 'none';
+            }
+        });
+        document.getElementById('confirme').addEventListener('input', function () {
+            const pwd = document.getElementById('password').value;
+            const errConf = document.getElementById('confirm-error');
+            if (this.value === pwd) {
+                this.setCustomValidity('');
+                errConf.style.display = 'none';
+            } else {
+                this.setCustomValidity('mismatch');
+            }
+        });
+    </script>
 </body>
+
 </html>

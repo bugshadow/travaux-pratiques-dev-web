@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez GPM par email ou via notre adresse physique.">
+    <title>Contact & Devis | GPM</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo"><img src="../images/GPM.png" alt="GPM Logo"></div>
+            <nav>
+                <a href="../index.html">Accueil</a>
+                <a href="about.html">À propos</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Galerie</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1 class="page-title">Nous Contacter</h1>
+
+            <div class="contact-layout">
+
+                <!-- FORMULAIRE COMPLET -->
+                <div
+                    style="background: var(--surface); padding: 3rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.03);">
+                    <h2 style="margin-bottom: 2rem; font-size: 1.8rem;">Dites-nous tout !</h2>
+
+                    <form action="#" method="POST" novalidate id="contactForm">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="name">Nom / Société <span style="color:var(--accent)">*</span></label>
+                                <input type="text" id="name" name="name" required placeholder="Ex : Karim Benali">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Ex: 06 12 34 56 78">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Adresse E-mail <span style="color:var(--accent)">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="contact@domaine.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet de votre demande <span
+                                    style="color:var(--accent)">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">-- Sélectionnez un sujet --</option>
+                                <option value="devis">Demande de devis</option>
+                                <option value="audit">Audit gratuit</option>
+                                <option value="emploi">Candidature / Offre d'emploi</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 2rem;">
+                            <label>Service(s) prioritaire(s) (optionnel)</label>
+                            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: .5rem;">
+                                <label style="font-weight: 500; cursor: pointer;"><input type="checkbox" name="services"
+                                        value="web" style="width:auto; margin-right: .5rem;"> Développement Web</label>
+                                <label style="font-weight: 500; cursor: pointer;"><input type="checkbox" name="services"
+                                        value="design" style="width:auto; margin-right: .5rem;"> Design UX/UI</label>
+                                <label style="font-weight: 500; cursor: pointer;"><input type="checkbox" name="services"
+                                        value="seo" style="width:auto; margin-right: .5rem;"> Référencement SEO</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <label for="message">Votre Message <span style="color:var(--accent)">*</span></label>
+                            <textarea id="message" name="message" required
+                                placeholder="Décrivez-nous votre projet ou votre besoin..."></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label for="attachment">Joindre un document (Cahier des charges, logo...)</label>
+                            <input type="file" id="attachment" name="attachment" style="padding: .5rem;">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer la demande</button>
+                    </form>
+                </div>
+
+                <!-- INFOS ET CARTE -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+                    <div
+                        style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border);">
+                        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Nos Coordonnées</h2>
+                        <ul style="list-style: none; color: var(--text); font-size: 1.05rem; line-height: 2;">
+                            <li><strong style="color: var(--accent);">Adresse :</strong> 15 Boulevard Mohammed V, Étage
+                                4, Appt 12, Rabat, Maroc</li>
+                            <li><strong style="color: var(--accent);">Email :</strong> hello@atlasdigital.ma</li>
+                            <li><strong style="color: var(--accent);">Téléphone :</strong> +212 5 37 12 34 56</li>
+                            <li><strong style="color: var(--accent);">Horaires :</strong> Lundi - Vendredi, 09h00 -
+                                18h00</li>
+                        </ul>
+                    </div>
+
+                    <div class="iframe-container">
+                        <!-- CARTE IFRAME GOOGLE MAPS -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105820.59798031548!2d-6.937887756182218!3d33.96934241180436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b871f50c5c1%3A0x7ac946ed7408076b!2sRabat%2C%20Morocco!5e0!3m2!1sen!2sfr!4v1715013446059!5m2!1sen!2sfr"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Emplacement de l'agence GPM sur Google Maps">
+                        </iframe>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GPM.</p>
+        </div>
+    </footer>
+<script src="../js/script.js"></script>
+</body>
+
+</html>

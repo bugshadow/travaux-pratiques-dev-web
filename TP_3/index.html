@@ -1,29 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entreprise GPM</title>
-    <meta name="description" content="Entrprise GPM est une entreprise de développement des jeux videos basée à Meknes, Maroc. ">
-    <meta property="og:title" content="Entreprise GPM">
-    <meta property="og:description" content="Entrprise GPM est une entreprise de développement des jeux videos basée à Meknes, Maroc. ">
-    <meta property="og:image" content="images/GPM.png">
+    <meta name="description"
+        content="GPM - Agence Web & Marketing. Découvrez nos services et notre expertise.">
+    <meta property="og:title" content="GPM | Accueil">
+    <meta property="og:description" content="Agence web créative spécialisée dans la transformation digitale.">
+    <meta property="og:type" content="website">
+    <title>GPM | Accueil</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <h1>GPM</h1>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="pages/about.html">À propos</a></li>
-                <li><a href="pages/services.html">Services</a></li>
-                <li><a href="pages/gallery.html">Galerie</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
-                
 
-            </ul>
-        </nav>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <div class="nav-container">
+            <div class="logo"><img src="images/GPM.png" alt="GPM Logo"></div>
+            <nav aria-label="Navigation principale">
+                <a href="index.html" class="active">Accueil</a>
+                <a href="pages/about.html">À propos</a>
+                <a href="pages/services.html">Services</a>
+                <a href="pages/gallery.html">Galerie</a>
+                <a href="pages/contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
+
+    <main>
+        <!-- HERO (IMAGE RESPONSIVE) -->
+        <section class="hero"
+            style="background-image: url('images/hero-bg.jpg'); background-size: cover; background-position: center; position: relative;">
+            <!-- Overlay pour la lisibilité -->
+            <div
+                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(253, 251, 247, 0.85); z-index: 1;">
+            </div>
+
+            <div class="hero-content" style="position: relative; z-index: 2;">
+                <h1>Propulsez votre entreprise vers l'avenir</h1>
+                <p>Stratégies digitales, développement web sur mesure et design d'exception. Nous créons des expériences
+                    en ligne inoubliables.</p>
+                <a href="pages/services.html" class="btn btn-primary">Découvrir nos services</a>
+            </div>
+        </section>
+
+        <!-- PRÉSENTATION VIDÉO (Remplacée par un bloc CSS élégant) -->
+        <section class="container" style="text-align: center;">
+            <h2 class="page-title" style="margin-bottom: 2rem;">Notre vision</h2>
+            <div
+                style="max-width: 900px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; border: 4px solid var(--surface); box-shadow: 0 10px 40px rgba(0,0,0,0.06); background: linear-gradient(135deg, var(--bg), #E8D5CE); display: flex; align-items: center; justify-content: center; position: relative;">
+                <!-- Motif décoratif de fond -->
+                <div
+                    style="position: absolute; width: 100%; height: 100%; opacity: 0.05; background-image: radial-gradient(var(--accent) 2px, transparent 2px); background-size: 30px 30px;">
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                    <div
+                        style="width: 80px; height: 80px; background: var(--surface); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent); font-size: 2rem; box-shadow: 0 5px 15px rgba(184, 91, 67, 0.2);">
+                        ▶
+                    </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text);">Découvrez GPM
+                    </h3>
+                    <p style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">
+                        Vidéo de présentation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES (APERÇU) -->
+        <section class="container" style="padding-top: 2rem;">
+            <h2 class="page-title">Ce que nous faisons</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Développement Web</h3>
+                    <p>Sites vitrines, e-commerce et applications sur mesure haute performance.</p>
+                </div>
+                <div class="card">
+                    <h3>Design UX/UI</h3>
+                    <p>Création d'interfaces intuitives et esthétiques centrées sur l'utilisateur.</p>
+                </div>
+                <div class="card">
+                    <h3>Marketing Digital</h3>
+                    <p>Stratégies SEO/SEA, gestion des réseaux sociaux et campagnes ciblées.</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="pages/services.html" class="btn btn-outline">Voir tous les services</a>
+            </div>
+        </section>
+
+        <!-- TÉMOIGNAGES -->
+        <section class="container"
+            style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 0;">
+            <h2 class="page-title">Ils nous font confiance</h2>
+            <div class="grid-3">
+                <blockquote class="card" style="box-shadow: none;">
+                    <p style="font-style: italic; margin-bottom: 1.5rem;">"Une équipe exceptionnelle, à l'écoute de nos
+                        besoins. Notre chiffre d'affaires a doublé depuis la refonte de notre site."</p>
+                    <footer style="color: var(--text); font-weight: 600; font-family: 'Montserrat', sans-serif;">—
+                        Karim, PDG InnovTech</footer>
+                </blockquote>
+                <blockquote class="card" style="box-shadow: none;">
+                    <p style="font-style: italic; margin-bottom: 1.5rem;">"Le design de notre application est
+                        magnifique. Nos utilisateurs adorent naviguer dessus."</p>
+                    <footer style="color: var(--text); font-weight: 600; font-family: 'Montserrat', sans-serif;">—
+                        Sarah, Start-up Santé</footer>
+                </blockquote>
+                <blockquote class="card" style="box-shadow: none;">
+                    <p style="font-style: italic; margin-bottom: 1.5rem;">"Un accompagnement parfait de bout en bout
+                        pour notre stratégie digitale."</p>
+                    <footer style="color: var(--text); font-weight: 600; font-family: 'Montserrat', sans-serif;">—
+                        Youssef, Responsable Marketing</footer>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>GPM</h4>
+                <p style="color: var(--muted); line-height: 1.6;">L'agence digitale marocaine qui transforme vos idées
+                    en réalités numériques fonctionnelles et esthétiques.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Plan du site</h4>
+                <nav aria-label="Plan du site">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="pages/about.html">À propos</a></li>
+                        <li><a href="pages/services.html">Services</a></li>
+                        <li><a href="pages/gallery.html">Galerie</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions générales de vente</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GPM. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+<script src="js/script.js"></script>
 </body>
+
 </html>

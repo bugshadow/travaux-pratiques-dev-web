@@ -1,63 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV/Portfolio</title>
+    <meta name="description" content="CV et portfolio de Bugshadow – Ingénieur en informatique.">
+    <title>Bugshadow — CV / Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <header>
-        <h1>My CV/Portfolio</h1>
-        <nav>
-            <a href="#apropos">a propos</a>
-            <a href="#competences">competences</a>
-            <a href="#formation">formation</a>
-            <a href="#contact">contact</a>
-
-
+        <span class="logo">Bugshadow</span>
+        <nav aria-label="Navigation principale">
+            <a href="#apropos">À propos</a>
+            <a href="#competences">Compétences</a>
+            <a href="#formation">Formation</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <main>
-        <section id="apropos">
-            <h2>a propos</h2>
-            <img src="image.png" alt="my photo" height="400"  >
-            <p>yeah it's me bugshadow</p>
+
+        <section id="apropos" aria-label="À propos">
+            <div class="hero-inner">
+
+                <div class="avatar-wrapper">
+                    <img src="image.png" alt="Photo de profil de Bugshadow">
+                </div>
+
+                <h1>Bugshadow</h1>
+                <p class="tagline">Étudiant Ingénieur en Informatique</p>
+
+                <p class="bio">
+                    Passionné par les technologies de pointe, je m'intéresse à l'intelligence artificielle,
+                    la blockchain et le développement système avec Rust. Toujours en quête de nouveaux défis techniques.
+                </p>
+
+                <div class="hero-btns">
+                    <a href="#competences" class="btn btn-primary">Voir mes compétences</a>
+                    <a href="#contact" class="btn btn-outline">Me contacter</a>
+                </div>
+
+            </div>
         </section>
-        <section id="competences">
-            <h2> mes competences</h2>
-            <ul>
-                <li>ML</li>
-                <li>blockchaine</li>
-                <li>rust</li>
-            </ul>
+
+        <section id="competences" aria-label="Compétences">
+            <div class="section-inner">
+                <span class="section-label">Savoir-faire</span>
+                <h2 class="section-title">Mes compétences</h2>
+
+                <ul class="skills-grid" role="list">
+                    <li class="skill-card">
+                        <div class="skill-name">Machine Learning</div>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="skill-fill" style="width:80%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-card">
+                        <div class="skill-name">Blockchain</div>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="skill-fill" style="width:70%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-card">
+                        <div class="skill-name">Rust</div>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="skill-fill" style="width:65%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-card">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="skill-fill" style="width:90%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-card">
+                        <div class="skill-name">HTML / CSS</div>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="skill-fill" style="width:85%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-card">
+                        <div class="skill-name">SQL / NoSQL</div>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <div class="skill-fill" style="width:75%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </section>
-        <section id="formation">
-            <h2> ma formation</h2>
-            <table>
-                <tr>
-                <th>Année</th>
-                <th>Formation</th>
-                </tr>
-                <tr>
-                <td>2023-2025</td>
-                <td>EST Meknes</td>
-                </tr>
-                <tr>
-                <td>2025-....</td>
-                <td>ENSET</td>
-                </tr>
-            </table>
+
+        <section id="formation" aria-label="Formation et expériences">
+            <div class="section-inner">
+                <span class="section-label">Parcours</span>
+                <h2 class="section-title">Formation &amp; expériences</h2>
+
+                <div class="table-container">
+                    <table class="edu-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Période</th>
+                                <th scope="col">Établissement</th>
+                                <th scope="col">Diplôme / Poste</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025 – en cours</td>
+                                <td>ESET Meknes</td>
+                                <td>Cycle Ingénieur Informatique</td>
+                            </tr>
+                            <tr>
+                                <td>2023 – 2025</td>
+                                <td>EST Meknes</td>
+                                <td>DUT Informatique</td>
+                            </tr>
+                            <tr>
+                                <td>2020 – 2023</td>
+                                <td>Mohammed V</td>
+                                <td>Baccalauréat Sciences Physiques</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
-        <section id="contact">
-            <h2> mes reseaux sociaux</h2>
-            <p>
-                <a href="https://github.com/bugshadow" target="_blank" rel="noopener">GitHub</a>
-            </p>
+
+        <section id="contact" aria-label="Réseaux sociaux et contact">
+            <div class="section-inner">
+                <span class="section-label">Réseaux</span>
+                <h2 class="section-title">Me retrouver en ligne</h2>
+
+                <nav class="socials" aria-label="Liens vers les réseaux sociaux">
+                    <a href="https://github.com/bugshadow" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/bugshadow" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">LinkedIn</a>
+                    <a href="mailto:contact@bugshadow.dev" class="social-btn">Email</a>
+                </nav>
+            </div>
         </section>
+
     </main>
+
     <footer>
-        <p>© 2026 Bugshadow</p>
+        <p>© 2026 Bugshadow — Tous droits réservés.</p>
     </footer>
+
 </body>
+
 </html>
