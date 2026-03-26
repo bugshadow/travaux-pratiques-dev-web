@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3 — Flexbox CSS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/exercice-3.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
+  <span class="topbar-brand">CSS · Exercice 3</span>
+  <span class="topbar-pill">Flexbox</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Cours CSS</div>
+  <h1>Flexbox CSS</h1>
+  <p class="hero-sub">Alignement · Layout · Barre nav · Cartes alignées</p>
+</header>
+
+<div class="page">
+
+  <!-- 1. NAVBAR -->
+  <div class="sh">
+    <div class="sh-num">1</div>
+    <div class="sh-title">3.1 Barre de navigation</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">HTML</span>
+    </div>
+    <pre><span class="sel">&lt;nav class="navbar"&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"logo"</span><span class="t">&gt;</span>MonSite<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;ul class="nav-links"&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"#"</span><span class="t">&gt;</span>Accueil<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"#"</span><span class="t">&gt;</span>Services<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"#"</span><span class="t">&gt;</span>Contact<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;/ul&gt;</span>
+<span class="t">&lt;/nav&gt;</span></pre>
+  </div>
+
+  <!-- 2. RÉPONSE NAVBAR -->
+  <div class="sh">
+    <div class="sh-num">2</div>
+    <div class="sh-title">Réponse — Barre de navigation avec Flexbox</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">style.css</span>
+    </div>
+    <pre><span class="cm">/* Barre de navigation */</span>
+<span class="sel">.navbar</span> {
+  <span class="prop">display</span>: <span class="cv">flex</span>;
+  <span class="prop">justify-content</span>: <span class="cv">space-between</span>; <span class="cm">/* logo à gauche, liens à droite */</span>
+  <span class="prop">align-items</span>: <span class="cv">center</span>; <span class="cm">/* centrage vertical */</span>
+  <span class="prop">background-color</span>: <span class="cv">#333</span>;
+  <span class="prop">padding</span>: <span class="cv">15px 30px</span>;
+}
+
+<span class="sel">.logo</span> {
+  <span class="prop">color</span>: <span class="cv">white</span>;
+  <span class="prop">font-weight</span>: <span class="cv">bold</span>;
+  <span class="prop">font-size</span>: <span class="cv">20px</span>;
+}
+
+<span class="sel">.nav-links</span> {
+  <span class="prop">display</span>: <span class="cv">flex</span>;
+  <span class="prop">list-style</span>: <span class="cv">none</span>;
+  <span class="prop">gap</span>: <span class="cv">20px</span>; <span class="cm">/* espace entre les liens */</span>
+}
+
+<span class="sel">.nav-links a</span> {
+  <span class="prop">color</span>: <span class="cv">white</span>;
+  <span class="prop">text-decoration</span>: <span class="cv">none</span>;
+}
+
+<span class="sel">.nav-links a:hover</span> {
+  <span class="prop">color</span>: <span class="cv">#0066cc</span>;
+}</pre>
+  </div>
+
+  <!-- 3. DÉMO NAVBAR -->
+  <div class="sh">
+    <div class="sh-num">3</div>
+    <div class="sh-title">Démonstration — Barre de navigation</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">Résultat</span>
+    </div>
+    <nav class="navbar-demo">
+      <div class="logo-demo">MonSite</div>
+      <ul class="nav-links-demo">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 4. CARTES -->
+  <div class="sh">
+    <div class="sh-num">4</div>
+    <div class="sh-title">3.2 Cartes de même hauteur</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">HTML</span>
+    </div>
+    <pre><span class="sel">&lt;div class="cards"&gt;</span>
+  <span class="sel">&lt;div class="card"&gt;</span>
+    <span class="t">&lt;h3&gt;</span>Carte 1<span class="t">&lt;/h3&gt;</span>
+    <span class="t">&lt;p&gt;</span>Contenu court.<span class="t">&lt;/p&gt;</span>
+    <span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"#"</span> <span class="a">class</span>=<span class="v">"card-link"</span><span class="t">&gt;</span>En savoir plus<span class="t">&lt;/a&gt;</span>
+  <span class="t">&lt;/div&gt;</span>
+  <span class="cm">/* ... autre cartes ... */</span>
+<span class="sel">&lt;/div&gt;</span></pre>
+  </div>
+
+  <!-- 5. RÉPONSE CARTES -->
+  <div class="sh">
+    <div class="sh-num">5</div>
+    <div class="sh-title">Réponse — Cartes avec Flexbox et footer aligné</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">style.css</span>
+    </div>
+    <pre><span class="cm">/* Conteneur de cartes */</span>
+<span class="sel">.cards</span> {
+  <span class="prop">display</span>: <span class="cv">flex</span>;
+  <span class="prop">gap</span>: <span class="cv">20px</span>; <span class="cm">/* espace entre les cartes */</span>
+  <span class="prop">margin</span>: <span class="cv">20px 0</span>;
+}
+
+<span class="sel">.card</span> {
+  <span class="prop">flex</span>: <span class="cv">1</span>; <span class="cm">/* largeur égale */</span>
+  <span class="prop">display</span>: <span class="cv">flex</span>;
+  <span class="prop">flex-direction</span>: <span class="cv">column</span>; <span class="cm">/* contenu en colonne */</span>
+  <span class="prop">background-color</span>: <span class="cv">white</span>;
+  <span class="prop">border</span>: <span class="cv">1px solid #ddd</span>;
+  <span class="prop">padding</span>: <span class="cv">20px</span>;
+  <span class="prop">border-radius</span>: <span class="cv">5px</span>;
+}
+
+<span class="sel">.card h3</span> {
+  <span class="prop">margin-bottom</span>: <span class="cv">10px</span>;
+}
+
+<span class="sel">.card p</span> {
+  <span class="prop">flex-grow</span>: <span class="cv">1</span>; <span class="cm">/* pousse le contenu vers le haut */</span>
+  <span class="prop">margin-bottom</span>: <span class="cv">15px</span>;
+}
+
+<span class="sel">.card-link</span> {
+  <span class="prop">background-color</span>: <span class="cv">#0066cc</span>;
+  <span class="prop">color</span>: <span class="cv">white</span>;
+  <span class="prop">padding</span>: <span class="cv">10px 15px</span>;
+  <span class="prop">text-decoration</span>: <span class="cv">none</span>;
+  <span class="prop">border-radius</span>: <span class="cv">3px</span>;
+  <span class="prop">align-self</span>: <span class="cv">flex-start</span>; <span class="cm">/* bouton en bas */</span>
+}
+
+<span class="cm">/* Responsive */</span>
+<span class="sel">@media (max-width: 700px)</span> {
+  <span class="sel">.cards</span> {
+    <span class="prop">flex-direction</span>: <span class="cv">column</span>; <span class="cm">/* cartes empilées */</span>
+  }
+}</pre>
+  </div>
+
+  <!-- 6. DÉMO CARTES -->
+  <div class="sh">
+    <div class="sh-num">6</div>
+    <div class="sh-title">Démonstration — Cartes de même hauteur</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">Résultat</span>
+    </div>
+    <div class="cards-demo">
+      <div class="card-demo">
+        <h3>Conception</h3>
+        <p>Créez des interfaces modernes et responsives avec Flexbox.</p>
+        <a href="#">Découvrir →</a>
+      </div>
+      <div class="card-demo">
+        <h3>Développement</h3>
+        <p>Flexbox simplifie les layouts complexes et élimine les hacks CSS. Lorem ipsum dolor sit amet.</p>
+        <a href="#">En savoir plus →</a>
+      </div>
+      <div class="card-demo">
+        <h3>Optimisation</h3>
+        <p>Votre site s'adapte automatiquement à tous les écrans.</p>
+        <a href="#">Commencer →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CONCEPTS CLÉ -->
+  <div class="sh">
+    <div class="sh-num">7</div>
+    <div class="sh-title">Concepts clé — À retenir !</div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="ch">flex: 1</div>
+      <p>Distribue l'espace restant entre les items. <strong>flex: 1</strong> = largeur égale pour tous les enfants.</p>
+    </div>
+    <div class="card">
+      <div class="ch">flex-grow: 1</div>
+      <p>Étire l'item pour occuper l'espace vertical disponible. Utile pour pousser le bouton au bas de la carte.</p>
+    </div>
+    <div class="card">
+      <div class="ch">justify-content: space-between</div>
+      <p>Logo à gauche, liens à droite avec espace maximum entre eux. Parfait pour les barres de navigation.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Exercice CSS · Flexbox | <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank">Documentation MDN</a></p>
+</footer>
+
+</body>
+</html>
