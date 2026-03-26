@@ -1,0 +1,29 @@
+/* Exercice 1.1 : Sélecteurs */
+
+/* 1. Sélectionnez tous les liens dans la navigation */
+.main-nav a {
+  color: #94a3b8;
+}
+
+/* 2. Sélectionnez uniquement le lien actif */
+.main-nav a.active {
+  color: #B85B43;
+  font-weight: bold;
+}
+
+/* 3. Sélectionnez l'article qui a la classe featured */
+article.featured {
+  border-left: 3px solid #B85B43;
+  background-color: #ffe6e6;
+}
+
+/* 4. Sélectionnez le premier paragraphe de chaque article */
+article p:first-of-type {
+  font-style: italic;
+  color: #666;
+}
+
+/* 5. Sélectionnez les éléments <li> pairs */
+.main-nav li:nth-child(even) {
+  text-decoration: underline;
+}
