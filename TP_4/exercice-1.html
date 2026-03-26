@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1 — Sélecteurs & Spécificité CSS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topbar f1">
+  <a href="index.html" class="home-btn">← Retour à l'accueil</a>
+  <span class="topbar-brand">CSS · Exercice 1</span>
+  <span class="topbar-pill">Sélecteurs & Spécificité</span>
+</nav>
+
+<header class="hero f1">
+  <div class="hero-eyebrow">Cours CSS</div>
+  <h1>Sélecteurs &amp; <i>Spécificité</i></h1>
+  <p class="hero-sub">Code HTML original · Réponses CSS · Aperçu en direct · Explications</p>
+</header>
+
+<div class="page">
+
+  <!-- 1. HTML DU PROF -->
+  <div class="sh f2">
+    <div class="sh-num">1</div>
+    <div class="sh-title">Code HTML donné par le professeur</div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="card f2">
+    <div class="ch">
+      <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
+      <span class="ch-name">index.html</span>
+    </div>
+    <pre><span class="cm">&lt;!-- Navigation principale --&gt;</span>
+<span class="t">&lt;nav</span> <span class="a">class</span>=<span class="v">"main-nav"</span><span class="t">&gt;</span>
+  <span class="t">&lt;ul&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"/"</span> <span class="a">class</span>=<span class="v">"active"</span><span class="t">&gt;</span>Accueil<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"/about"</span><span class="t">&gt;</span>À propos<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"/contact"</span><span class="t">&gt;</span>Contact<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;/ul&gt;</span>
+<span class="t">&lt;/nav&gt;</span>
+
+<span class="cm">&lt;!-- Contenu principal --&gt;</span>
+<span class="t">&lt;main&gt;</span>
+  <span class="t">&lt;article</span> <span class="a">class</span>=<span class="v">"post featured"</span><span class="t">&gt;</span>
+    <span class="t">&lt;h2&gt;</span>Premier article<span class="t">&lt;/h2&gt;</span>
+    <span class="t">&lt;p&gt;</span>Contenu...<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;/article&gt;</span>
+  <span class="t">&lt;article</span> <span class="a">class</span>=<span class="v">"post"</span><span class="t">&gt;</span>
+    <span class="t">&lt;h2&gt;</span>Deuxième article<span class="t">&lt;/h2&gt;</span>
+    <span class="t">&lt;p&gt;</span>Contenu...<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;/article&gt;</span>
+<span class="t">&lt;/main&gt;</span></pre>
+  </div>
+
+  <!-- 2. RÉPONSES CSS -->
+  <div class="sh f3">
+    <div class="sh-num">2</div>
+    <div class="sh-title">Réponses — 1.1 Sélecteurs</div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="g2 f3">
+    <div class="card">
+      <div class="ch">
+        <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
+        <span class="ch-name">style.css</span>
+      </div>
+      <pre><span class="cm">/* Q1 — Tous les liens dans la nav */</span>
+<span class="sel">.main-nav a</span> {
+  <span class="prop">color</span>: <span class="cv">#94a3b8</span>;
+}
+
+<span class="cm">/* Q2 — Uniquement le lien actif */</span>
+<span class="sel">.main-nav a.active</span> {
+  <span class="prop">color</span>: <span class="cv">#B85B43</span>;
+  <span class="prop">font-weight</span>: <span class="kw">500</span>;
+}
+
+<span class="cm">/* Q3 — Article avec classe "featured" */</span>
+<span class="sel">article.featured</span> {
+  <span class="prop">border-left</span>: <span class="cv">3px solid #B85B43</span>;
+}
+
+<span class="cm">/* Q4 — 1er paragraphe de chaque article */</span>
+<span class="sel">article p:first-of-type</span> {
+  <span class="prop">font-style</span>: <span class="kw">italic</span>;
+}
+
+<span class="cm">/* Q5 — &lt;li&gt; pairs (2e, 4e…) */</span>
+<span class="sel">.main-nav li:nth-child(even)</span> {
+  <span class="prop">text-decoration</span>: <span class="kw">underline</span>;
+}</pre>
+    </div>
+
+    <div class="card">
+      <div class="ch">
+        <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
+        <span class="ch-name">Explications</span>
+      </div>
+      <div class="qalist">
+        <div class="qi">
+          <div class="qn">01</div>
+          <div>
+            <div class="qq">Tous les liens dans la navigation</div>
+            <div class="qa">.main-nav a</div>
+            <div class="qnote">Sélecteur descendant : tout &lt;a&gt; à l'intérieur de .main-nav, quelle que soit la profondeur.</div>
+          </div>
+        </div>
+        <div class="qi">
+          <div class="qn">02</div>
+          <div>
+            <div class="qq">Uniquement le lien actif</div>
+            <div class="qa">.main-nav a.active</div>
+            <div class="qnote">Chaîne sans espace : le &lt;a&gt; doit posséder simultanément la classe <em>active</em>.</div>
+          </div>
+        </div>
+        <div class="qi">
+          <div class="qn">03</div>
+          <div>
+            <div class="qq">Article avec la classe "featured"</div>
+            <div class="qa">article.featured</div>
+            <div class="qnote">Combine élément + classe : cible uniquement les &lt;article&gt; portant cette classe précise.</div>
+          </div>
+        </div>
+        <div class="qi">
+          <div class="qn">04</div>
+          <div>
+            <div class="qq">Premier &lt;p&gt; de chaque article</div>
+            <div class="qa">article p:first-of-type</div>
+            <div class="qnote">Pseudo-classe structurelle : le premier &lt;p&gt; parmi les enfants de chaque article.</div>
+          </div>
+        </div>
+        <div class="qi">
+          <div class="qn">05</div>
+          <div>
+            <div class="qq">Éléments &lt;li&gt; pairs</div>
+            <div class="qa">.main-nav li:nth-child(even)</div>
+            <div class="qnote">:nth-child(even) cible 2e, 4e, 6e… Équivalent à :nth-child(2n).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. APERÇU -->
+  <div class="sh f4">
+    <div class="sh-num">3</div>
+    <div class="sh-title">Aperçu en direct — résultat visuel</div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="card f4">
+    <div class="ch">
+      <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
+      <span class="ch-name">Rendu navigateur</span>
+    </div>
+    <div class="pv">
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Accueil</a></li>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <main>
+        <article class="post featured">
+          <h2>Premier article</h2>
+          <p>Article mis en avant — classe <em>featured</em> appliquée.</p>
+        </article>
+        <article class="post">
+          <h2>Deuxième article</h2>
+          <p>Article standard sans classe spéciale.</p>
+        </article>
+      </main>
+    </div>
+    <div class="leg">
+      <div class="li"><span class="ld" style="background:#A0AEC0"></span>Q1 : .main-nav a → gris</div>
+      <div class="li"><span class="ld"></span>Q2 : a.active → terracotta</div>
+      <div class="li"><span class="ld" style="background:var(--border)"></span>Q3 : article.featured → bordure</div>
+      <div class="li"><span class="ld" style="background:var(--muted)"></span>Q4 : p:first-of-type → italique</div>
+      <div class="li"><span class="ld" style="background:#CBD5E0"></span>Q5 : li:nth-child(even) → souligné</div>
+    </div>
+  </div>
+
+  <!-- 4. SPÉCIFICITÉ -->
+  <div class="sh f5">
+    <div class="sh-num">4</div>
+    <div class="sh-title">Réponses — 1.2 Spécificité</div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="g2 f5">
+    <div class="card">
+      <div class="ch">
+        <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
+        <span class="ch-name">Classement croissant</span>
+      </div>
+      <table class="st">
+        <thead>
+          <tr><th>Rang</th><th>Sélecteur</th><th>Score (id·cl·el)</th><th>Niveau</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1 — faible</td><td>p</td><td>0 · 0 · 1</td><td><span class="pill pl">Bas</span></td></tr>
+          <tr><td>2</td><td>.text</td><td>0 · 1 · 0</td><td><span class="pill pl">Bas</span></td></tr>
+          <tr><td>3</td><td>p.text</td><td>0 · 1 · 1</td><td><span class="pill pm">Moyen</span></td></tr>
+          <tr><td>4</td><td>#main .text p</td><td>1 · 1 · 1</td><td><span class="pill ph">Élevé</span></td></tr>
+          <tr><td>5 — fort</td><td>#main</td><td>1 · 0 · 0</td><td><span class="pill pv2">Très élevé</span></td></tr>
+        </tbody>
+      </table>
+      <div style="padding:.7rem 1.1rem;font-size:.7rem;color:var(--muted);background:var(--bg);border-top:1px solid var(--border);font-family:'DM Mono',monospace;">
+        ⚠ #main (1·0·0) &gt; #main .text p (1·1·1) — comparaison colonne par colonne.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ch">
+        <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
+        <span class="ch-name">Q2 & Q3</span>
+      </div>
+      <div class="qalist">
+        <div class="qi">
+          <div class="qn">Q2</div>
+          <div>
+            <div class="qq">Même spécificité — laquelle gagne ?</div>
+            <div class="qa">La dernière déclarée</div>
+            <div class="qnote">C'est le principe de la <strong>cascade</strong>. En cas d'égalité parfaite, la règle qui apparaît en dernier dans le fichier CSS est appliquée.</div>
+          </div>
+        </div>
+        <div class="qi">
+          <div class="qn">Q3</div>
+          <div>
+            <div class="qq">Pourquoi éviter !important ?</div>
+            <div class="qa">3 raisons majeures</div>
+            <div class="qnote">
+              <strong>① Maintenance</strong> — casse la cascade normale, difficile à déboguer.<br><br>
+              <strong>② Escalade</strong> — pour battre un <span class="ic">!important</span> il faut en ajouter un autre, créant une guerre sans fin.<br><br>
+              <strong>③ Architecture</strong> — c'est le symptôme d'un CSS mal structuré. La bonne solution est de revoir la spécificité des sélecteurs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CONCEPTS -->
+  <div class="sh f6">
+    <div class="sh-num">5</div>
+    <div class="sh-title">Concepts clés à retenir</div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="g3 f6">
+    <div class="cc">
+      <div class="cc-icon">▸</div>
+      <div class="cc-title">Sélecteur descendant</div>
+      <div class="cc-body"><span class="ic">.parent enfant</span> — espace entre deux sélecteurs. Cible tout élément enfant de .parent quelle que soit sa profondeur dans le DOM.</div>
+    </div>
+    <div class="cc">
+      <div class="cc-icon">≈</div>
+      <div class="cc-title">Calcul de spécificité</div>
+      <div class="cc-body">On compte séparément IDs, classes/pseudo-classes, et éléments. On compare colonne par colonne : <span class="ic">(1,0,0)</span> bat toujours <span class="ic">(0,9,9)</span>.</div>
+    </div>
+    <div class="cc">
+      <div class="cc-icon">∿</div>
+      <div class="cc-title">La cascade CSS</div>
+      <div class="cc-body">Ordre de priorité : <span class="ic">!important</span> &gt; spécificité &gt; ordre d'apparition. En cas d'égalité, la dernière règle l'emporte.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Exercice 1 — CSS Sélecteurs & Spécificité</p>
+  <span>exercice-1.html</span>
+</footer>
+
+</body>
+</html>
