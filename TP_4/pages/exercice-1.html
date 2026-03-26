@@ -3,64 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirection —Exercices CSS</title>
-  <script>
-    window.location.href = 'index.html';
-  </script>
-</head>
-<body>
-  <p>Veuillez patienter, redirection en cours...</p>
-  <p><a href="index.html">Cliquez ici si la redirection ne fonctionne pas</a></p>
-</body>
-</html>
-.pv article { border-radius:5px; padding:.8rem 1rem; }
-.pv article.featured { border-left:3px solid var(--accent); background:var(--accent-l); }
-.pv article:not(.featured) { border:1px solid var(--border); }
-.pv h2 { font-family:'Playfair Display',serif; font-size:.9rem; color:var(--text); margin-bottom:.25rem; }
-.pv p:first-of-type { font-style:italic; color:var(--muted); font-size:.8rem; }
-
-.leg {
-  display:flex; flex-wrap:wrap; gap:.5rem 1.1rem;
-  padding:.8rem 1.3rem;
-  border-top:1px solid var(--border);
-  background:var(--bg);
-}
-.li { display:flex; align-items:center; gap:.35rem; font-family:'DM Mono',monospace; font-size:.68rem; color:var(--muted); }
-.ld { width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-
-/* ── Spec table ── */
-.st { width:100%; border-collapse:collapse; }
-.st th {
-  text-align:left; padding:.65rem 1.1rem;
-  font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--muted); border-bottom:2px solid var(--border); background:var(--bg);
-}
-.st td { padding:.72rem 1.1rem; font-family:'DM Mono',monospace; font-size:.8rem; color:var(--text); border-bottom:1px solid var(--border); }
-.st tr:last-child td { border-bottom:none; }
-.st tr:hover td { background:var(--bg); }
-.st td:nth-child(2) { color:var(--accent); font-weight:500; }
-.pill { display:inline-block; padding:.13rem .55rem; border-radius:2rem; font-size:.68rem; font-family:'DM Mono',monospace; font-weight:500; }
-.pl { background:#EBF8F0; color:var(--success); }
-.pm { background:var(--accent-l); color:var(--accent); }
-.ph { background:#FEFCE8; color:#92590A; }
-.pv2 { background:#FEF2F2; color:var(--danger); }
-
-/* ── Concept cards ── */
-.cc { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.3rem; }
-.cc-icon { width:34px; height:34px; background:var(--accent-l); border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:.95rem; margin-bottom:.8rem; }
-.cc-title { font-family:'Playfair Display',serif; font-size:.9rem; color:var(--text); margin-bottom:.4rem; }
-.cc-body { font-size:.78rem; color:var(--muted); line-height:1.6; }
-.ic { display:inline-block; font-family:'DM Mono',monospace; font-size:.7rem; background:var(--bg); border:1px solid var(--border); padding:.1rem .4rem; border-radius:3px; color:var(--accent); }
-
-/* ── Footer ── */
-footer { border-top:1px solid var(--border); padding:1.3rem 2.5rem; display:flex; justify-content:space-between; align-items:center; }
-footer p { font-size:.73rem; color:var(--muted); }
-footer span { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--accent); }
-</style>
+  <title>Exercice 1 — Sélecteurs & Spécificité CSS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <nav class="topbar f1">
+  <a href="index.html" class="home-btn">← Retour à l'accueil</a>
   <span class="topbar-brand">CSS · Exercice 1</span>
   <span class="topbar-pill">Sélecteurs & Spécificité</span>
 </nav>
@@ -91,7 +42,7 @@ footer span { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--acc
     <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"/"</span> <span class="a">class</span>=<span class="v">"active"</span><span class="t">&gt;</span>Accueil<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
     <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"/about"</span><span class="t">&gt;</span>À propos<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
     <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href</span>=<span class="v">"/contact"</span><span class="t">&gt;</span>Contact<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
-  <span class="t">&lt;/ul&gt;</span>
+    <span class="t">&lt;/ul&gt;</span>
 <span class="t">&lt;/nav&gt;</span>
 
 <span class="cm">&lt;!-- Contenu principal --&gt;</span>
@@ -210,7 +161,7 @@ footer span { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--acc
       <span class="ch-name">Rendu navigateur</span>
     </div>
     <div class="pv">
-      <nav>
+      <nav class="main-nav">
         <ul>
           <li><a href="#" class="active">Accueil</a></li>
           <li><a href="#">À propos</a></li>
@@ -258,13 +209,10 @@ footer span { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--acc
           <tr><td>1 — faible</td><td>p</td><td>0 · 0 · 1</td><td><span class="pill pl">Bas</span></td></tr>
           <tr><td>2</td><td>.text</td><td>0 · 1 · 0</td><td><span class="pill pl">Bas</span></td></tr>
           <tr><td>3</td><td>p.text</td><td>0 · 1 · 1</td><td><span class="pill pm">Moyen</span></td></tr>
-          <tr><td>4</td><td>#main .text p</td><td>1 · 1 · 1</td><td><span class="pill ph">Élevé</span></td></tr>
-          <tr><td>5 — fort</td><td>#main</td><td>1 · 0 · 0</td><td><span class="pill pv2">Très élevé</span></td></tr>
+          <tr><td>4</td><td>#main</td><td>1 · 0 · 0</td><td><span class="pill ph">Élevé</span></td></tr>
+          <tr><td>5 — fort</td><td>#main .text p</td><td>1 · 1 · 1</td><td><span class="pill pv2">Très élevé</span></td></tr>
         </tbody>
       </table>
-      <div style="padding:.7rem 1.1rem;font-size:.7rem;color:var(--muted);background:var(--bg);border-top:1px solid var(--border);font-family:'DM Mono',monospace;">
-        ⚠ #main (1·0·0) &gt; #main .text p (1·1·1) — comparaison colonne par colonne.
-      </div>
     </div>
 
     <div class="card">
@@ -306,17 +254,17 @@ footer span { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--acc
 
   <div class="g3 f6">
     <div class="cc">
-      <div class="cc-icon">🎯</div>
+      <div class="cc-icon">▸</div>
       <div class="cc-title">Sélecteur descendant</div>
       <div class="cc-body"><span class="ic">.parent enfant</span> — espace entre deux sélecteurs. Cible tout élément enfant de .parent quelle que soit sa profondeur dans le DOM.</div>
     </div>
     <div class="cc">
-      <div class="cc-icon">⚖️</div>
+      <div class="cc-icon">≈</div>
       <div class="cc-title">Calcul de spécificité</div>
       <div class="cc-body">On compte séparément IDs, classes/pseudo-classes, et éléments. On compare colonne par colonne : <span class="ic">(1,0,0)</span> bat toujours <span class="ic">(0,9,9)</span>.</div>
     </div>
     <div class="cc">
-      <div class="cc-icon">🌊</div>
+      <div class="cc-icon">∿</div>
       <div class="cc-title">La cascade CSS</div>
       <div class="cc-body">Ordre de priorité : <span class="ic">!important</span> &gt; spécificité &gt; ordre d'apparition. En cas d'égalité, la dernière règle l'emporte.</div>
     </div>
@@ -326,7 +274,7 @@ footer span { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--acc
 
 <footer>
   <p>Exercice 1 — CSS Sélecteurs & Spécificité</p>
-  <span>exercice-css.html</span>
+  <span>exercice-1.html</span>
 </footer>
 
 </body>
