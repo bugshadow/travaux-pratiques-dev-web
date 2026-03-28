@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 6 — Variables & Thèmes</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/exercice-6.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
+  <span class="topbar-brand">CSS · Exercice 6</span>
+  <span class="topbar-pill">Variables CSS</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Cours CSS</div>
+  <h1>Variables & Thèmes</h1>
+  <p class="hero-sub">Custom Properties · Thème Clair & Sombre · Maintenance</p>
+</header>
+
+<div class="page">
+
+  <!-- 1. SYSTÈME DE COULEURS -->
+  <div class="sh">
+    <div class="sh-num">1</div>
+    <div class="sh-title">6.1 Système de Variables CSS</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">CSS (Définition)</span>
+    </div>
+    <pre><span class="cm">/* Thème clair (Défaut) */</span>
+<span class="sel">:root</span> {
+  <span class="prop">--primary-color</span>: <span class="cv">#0066cc</span>;
+  <span class="prop">--bg-color</span>: <span class="cv">#ffffff</span>;
+  <span class="prop">--text-color</span>: <span class="cv">#333333</span>;
+  <span class="prop">--card-bg</span>: <span class="cv">#f9f9f9</span>;
+}
+
+<span class="cm">/* Thème sombre */</span>
+<span class="sel">[data-theme="dark"]</span> {
+  <span class="prop">--primary-color</span>: <span class="cv">#4da3ff</span>;
+  <span class="prop">--bg-color</span>: <span class="cv">#1a1a1a</span>;
+  <span class="prop">--text-color</span>: <span class="cv">#f0f0f0</span>;
+  <span class="prop">--card-bg</span>: <span class="cv">#2d2d2d</span>;
+}</pre>
+  </div>
+
+  <!-- 2. UTILISATION -->
+  <div class="sh">
+    <div class="sh-num">2</div>
+    <div class="sh-title">Réponse — Utilisation des Variables</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">style.css</span>
+    </div>
+    <pre><span class="sel">body</span> {
+  <span class="prop">background-color</span>: <span class="cv">var(--bg-color)</span>;
+  <span class="prop">color</span>: <span class="cv">var(--text-color)</span>;
+  <span class="prop">transition</span>: <span class="cv">background 0.3s, color 0.3s</span>;
+}
+
+<span class="sel">.btn-primary</span> {
+  <span class="prop">background-color</span>: <span class="cv">var(--primary-color)</span>;
+  <span class="prop">color</span>: <span class="cv">white</span>;
+  <span class="prop">padding</span>: <span class="cv">10px 20px</span>;
+  <span class="prop">border-radius</span>: <span class="cv">5px</span>;
+}</pre>
+  </div>
+
+  <!-- 3. DÉMO THÈMES -->
+  <div class="sh">
+    <div class="sh-num">3</div>
+    <div class="sh-title">Démonstration — Sélecteur de Thème</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">Interface Thèmable</span>
+    </div>
+    <div id="theme-demo-container" class="theme-demo-light">
+      <div class="theme-card-preview">
+        <h3>Aperçu du Thème</h3>
+        <p>Ce conteneur utilise des variables CSS qui changent dynamiquement.</p>
+        <button id="toggle-theme-btn" class="theme-btn-preview">Changer le Thème</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. CONCEPTS CLÉ -->
+  <div class="sh">
+    <div class="sh-num">4</div>
+    <div class="sh-title">Concepts clé — À retenir !</div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="ch">--var-name</div>
+      <p>Les variables CSS commencent toujours par deux tirets (<code>--</code>). Elles sont sensibles à la casse.</p>
+    </div>
+    <div class="card">
+      <div class="ch">var(--name)</div>
+      <p>On accède à la valeur d'une variable via la fonction <code>var()</code>. On peut ajouter une valeur de secours : <code>var(--color, blue)</code>.</p>
+    </div>
+    <div class="card">
+      <div class="ch">:root</div>
+      <p>Déclarer les variables dans <code>:root</code> les rend accessibles dans tout le document (portée globale).</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Exercice CSS · Variables CSS | <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties" target="_blank">Documentation MDN</a></p>
+</footer>
+
+<script>
+  const btn = document.getElementById('toggle-theme-btn');
+  const container = document.getElementById('theme-demo-container');
+  
+  btn.addEventListener('click', () => {
+    if (container.classList.contains('theme-demo-light')) {
+      container.classList.remove('theme-demo-light');
+      container.classList.add('theme-demo-dark');
+      btn.textContent = 'Passer en Mode Clair';
+    } else {
+      container.classList.remove('theme-demo-dark');
+      container.classList.add('theme-demo-light');
+      btn.textContent = 'Passer en Mode Sombre';
+    }
+  });
+</script>
+
+</body>
+</html>

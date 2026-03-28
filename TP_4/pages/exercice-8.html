@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 8 — Quiz de Révision</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/exercice-8.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
+  <span class="topbar-brand">CSS · Exercice 8</span>
+  <span class="topbar-pill">Quiz</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Certification</div>
+  <h1>Quiz de Révision</h1>
+  <p class="hero-sub">Sélecteurs · Box Model · Flexbox · Grid · Responsive</p>
+</header>
+
+<div class="page">
+
+  <div class="sh">
+    <div class="sh-num">✔</div>
+    <div class="sh-title">Solutions — Quiz de Révision</div>
+  </div>
+
+  <div class="quiz-container">
+    <!-- Q1 -->
+    <div class="card quiz-card correct">
+      <div class="ch">Question 1</div>
+      <p class="quiz-question">Quel sélecteur a la spécificité la plus haute ?</p>
+      <div class="quiz-options">
+        <div class="option">.header .nav a (0, 2, 1)</div>
+        <div class="option selected">#header a (1, 0, 1) — SOLUTION</div>
+        <div class="option">header nav a (0, 0, 3)</div>
+        <div class="option">a.active (0, 1, 1)</div>
+      </div>
+      <div class="feedback">L'ID (<code>#header</code>) l'emporte toujours sur les classes et les éléments.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="card quiz-card correct">
+      <div class="ch">Question 2</div>
+      <p class="quiz-question">Avec <code>box-sizing: border-box</code>, un élément avec <code>width: 200px</code> et <code>padding: 20px</code> a une largeur totale de :</p>
+      <div class="quiz-options">
+        <div class="option">240px</div>
+        <div class="option selected">200px — SOLUTION</div>
+        <div class="option">220px</div>
+        <div class="option">160px</div>
+      </div>
+      <div class="feedback">Avec <code>border-box</code>, le padding et la bordure sont inclus dans la largeur définie.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="card quiz-card correct">
+      <div class="ch">Question 3</div>
+      <p class="quiz-question">Pour centrer un élément verticalement et horizontalement avec Flexbox :</p>
+      <div class="quiz-options">
+        <div class="option">justify-content: center (Horizontal)</div>
+        <div class="option">align-items: center (Vertical)</div>
+        <div class="option selected">justify-content: center ET align-items: center — SOLUTION</div>
+        <div class="option">text-align: center (Texte uniquement)</div>
+      </div>
+      <div class="feedback">Il faut combiner les deux axes de Flexbox pour une centrage complet.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="card quiz-card correct">
+      <div class="ch">Question 4</div>
+      <p class="quiz-question">La valeur <code>1fr</code> en CSS Grid signifie :</p>
+      <div class="quiz-options">
+        <div class="option">1 pixel</div>
+        <div class="option selected">1 fraction de l'espace disponible — SOLUTION</div>
+        <div class="option">1 pourcentage</div>
+        <div class="option">1 rem</div>
+      </div>
+      <div class="feedback">L'unité <code>fr</code> (fraction) est spécifique aux grilles CSS.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="card quiz-card correct">
+      <div class="ch">Question 5</div>
+      <p class="quiz-question">L'approche "Mobile First" utilise :</p>
+      <div class="quiz-options">
+        <div class="option">max-width dans les media queries</div>
+        <div class="option selected">min-width dans les media queries — SOLUTION</div>
+        <div class="option">device-width</div>
+        <div class="option">orientation</div>
+      </div>
+      <div class="feedback">On part du mobile (petit écran) et on ajoute des règles avec <code>min-width</code> pour les écrans plus larges.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Exercice CSS · Quiz de Révision final</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 7 — Animations & Transitions</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/exercice-7.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
+  <span class="topbar-brand">CSS · Exercice 7</span>
+  <span class="topbar-pill">Animations</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Cours CSS</div>
+  <h1>Transitions & Animations</h1>
+  <p class="hero-sub">Hover Effects · Keyframes · Micro-interactions</p>
+</header>
+
+<div class="page">
+
+  <!-- 1. BOUTON ANIMÉ -->
+  <div class="sh">
+    <div class="sh-num">1</div>
+    <div class="sh-title">7.1 Bouton avec Transitions</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">CSS (Transitions)</span>
+    </div>
+    <pre><span class="sel">.btn-anim</span> {
+  <span class="prop">background-color</span>: <span class="cv">#0066cc</span>;
+  <span class="prop">transition</span>: <span class="cv">all 0.3s ease</span>;
+}
+
+<span class="sel">.btn-anim:hover</span> {
+  <span class="prop">background-color</span>: <span class="cv">#004499</span>;
+  <span class="prop">transform</span>: <span class="cv">scale(1.1)</span>;
+  <span class="prop">box-shadow</span>: <span class="cv">0 5px 15px rgba(0,0,0,0.3)</span>;
+}</pre>
+  </div>
+
+  <!-- 2. ANIMATION DE CHARGEMENT -->
+  <div class="sh">
+    <div class="sh-num">2</div>
+    <div class="sh-title">7.2 Animation de chargement (@keyframes)</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">CSS (Keyframes)</span>
+    </div>
+    <pre><span class="sel">@keyframes spin</span> {
+  <span class="cv">0%</span> { <span class="prop">transform</span>: <span class="cv">rotate(0deg)</span>; }
+  <span class="cv">100%</span> { <span class="prop">transform</span>: <span class="cv">rotate(360deg)</span>; }
+}
+
+<span class="sel">.spinner</span> {
+  <span class="prop">border</span>: <span class="cv">4px solid #f3f3f3</span>;
+  <span class="prop">border-top</span>: <span class="cv">4px solid #0066cc</span>;
+  <span class="prop">border-radius</span>: <span class="cv">50%</span>;
+  <span class="prop">width</span>: <span class="cv">40px</span>;
+  <span class="prop">height</span>: <span class="cv">40px</span>;
+  <span class="prop">animation</span>: <span class="cv">spin 1s linear infinite</span>;
+}</pre>
+  </div>
+
+  <!-- 3. DÉMO ANIMATIONS -->
+  <div class="sh">
+    <div class="sh-num">3</div>
+    <div class="sh-title">Démonstration — Interactivité & Mouvement</div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ch">Survolez-moi</div>
+      <div class="demo-anim-container">
+        <button class="btn-demo-anim">Bouton Interactif</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch">Spinner CSS</div>
+      <div class="demo-anim-container">
+        <div class="spinner-demo"></div>
+        <p style="margin-top: 15px; color: #666;">Chargement en cours...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. CONCEPTS CLÉ -->
+  <div class="sh">
+    <div class="sh-num">4</div>
+    <div class="sh-title">Concepts clé — À retenir !</div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="ch">transition</div>
+      <p>Permet de modifier les valeurs des propriétés de manière fluide sur une durée donnée. Syntaxe : <code>propriété durée timing-function</code>.</p>
+    </div>
+    <div class="card">
+      <div class="ch">transform</div>
+      <p>Modifie la forme et la position d'un élément (<code>scale</code>, <code>rotate</code>, <code>translate</code>) sans impacter le layout des autres éléments.</p>
+    </div>
+    <div class="card">
+      <div class="ch">@keyframes</div>
+      <p>Définit les étapes d'une animation. On l'applique avec la propriété <code>animation</code>.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Exercice CSS · Animations | <a href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">Documentation MDN</a></p>
+</footer>
+
+</body>
+</html>
