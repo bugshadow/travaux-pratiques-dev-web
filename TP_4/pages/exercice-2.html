@@ -9,250 +9,79 @@
 </head>
 <body>
 
-<nav class="topbar">
-  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
-  <span class="topbar-brand">CSS · Exercice 2</span>
-  <span class="topbar-pill">Box Model</span>
-</nav>
+  <nav class="topbar">
+    <a href="../index.html" class="home-btn">← Accueil TP 4</a>
+    <span class="topbar-brand">Exercice 2</span>
+    <span class="topbar-pill">Box Model</span>
+  </nav>
 
-<header class="hero">
-  <div class="hero-eyebrow">Cours CSS</div>
-  <h1>Box Model CSS</h1>
-  <p class="hero-sub">Comprendre la largeur · Padding · Margin · Border · box-sizing</p>
-</header>
+  <header class="hero">
+    <h1>Exercice 2 : Box Model</h1>
+    <p class="hero-sub">Padding, Border, Margin et Centrage</p>
+  </header>
 
-<div class="page">
+  <div class="page">
 
-  <!-- 1. BOX MODEL VISUEL -->
-  <div class="sh">
-    <div class="sh-num">1</div>
-    <div class="sh-title">2.1 Comprendre le Box Model</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">HTML</span>
+    <!-- 2.1 BOX MODEL -->
+    <div class="sh">
+      <span class="sh-num">2.1</span>
+      <span class="sh-title">Comprendre le Box Model</span>
     </div>
-    <pre><span class="cm">/* Élément avec box model */</span>
-<span class="sel">.box</span> {
+
+    <div class="card">
+      <div class="ch">CSS : Box Definition</div>
+      <div class="card-body">
+        <pre><span class="sel">.box</span> {
   <span class="prop">width</span>: <span class="cv">300px</span>;
   <span class="prop">padding</span>: <span class="cv">20px</span>;
   <span class="prop">border</span>: <span class="cv">5px solid #333</span>;
   <span class="prop">margin</span>: <span class="cv">15px</span>;
 }</pre>
-  </div>
-
-  <!-- 2. QUESTIONS RÉPONSES BOX MODEL -->
-  <div class="sh">
-    <div class="sh-num">2</div>
-    <div class="sh-title">Réponses — 2.1 Box Model</div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ch">
-        <span class="ch-name">Q1 : content-box (défaut)</span>
-      </div>
-      <div class="answer-box">
-        <div class="question-title">Largeur totale visible ?</div>
-        <div class="calculation">
-          <div class="calc-line">width: 300px</div>
-          <div class="calc-line">+ padding: 20px × 2 = 40px</div>
-          <div class="calc-line">+ border: 5px × 2 = 10px</div>
-          <div class="calc-line" style="border-top: 2px solid #333; padding-top: 10px; margin-top: 10px;"><strong>= 350px</strong></div>
-          <div class="calc-note">(margin 15px n'est pas inclus, c'est l'espace externe)</div>
-        </div>
       </div>
     </div>
 
     <div class="card">
-      <div class="ch">
-        <span class="ch-name">Q2 : border-box</span>
-      </div>
-      <div class="answer-box">
-        <div class="question-title">Largeur totale visible ?</div>
-        <div class="calculation">
-          <div class="calc-line"><strong>= 300px</strong></div>
-          <div class="calc-note">Tout est inclus dans les 300px : width + padding + border</div>
-          <div class="calc-note" style="margin-top: 10px;">border-box inclut padding et border dans la largeur définie</div>
-        </div>
+      <div class="ch">Questions & Réponses</div>
+      <div class="card-body">
+        <ol>
+          <li>Largeur totale avec <strong>content-box</strong> (défaut) : <br><code>300px (width) + 2*20px (padding) + 2*5px (border) = <strong>350px</strong></code></li>
+          <li>Largeur totale avec <strong>border-box</strong> : <br><code>La largeur totale visible de l'élément est égale à la valeur définie : <strong>300px</strong>.</code></li>
+          <li>Reset CSS universel pour box-sizing : <br><code>* { box-sizing: border-box; }</code></li>
+        </ol>
       </div>
     </div>
-  </div>
 
-  <!-- 3. RESET CSS -->
-  <div class="sh">
-    <div class="sh-num">3</div>
-    <div class="sh-title">Réponse — Q3 : Reset CSS universel</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">style.css</span>
+    <!-- 2.2 CENTRAGE -->
+    <div class="sh">
+      <span class="sh-num">2.2</span>
+      <span class="sh-title">Centrer un élément</span>
     </div>
-    <pre><span class="cm">/* Reset universel pour box-sizing */</span>
-<span class="sel">*</span> {
-  <span class="prop">box-sizing</span>: <span class="cv">border-box</span>;
+
+    <div class="card">
+      <div class="ch">Centrage complet (Horizontal & Vertical)</div>
+      <div class="card-body">
+        <pre><span class="cm">/* Centrage horizontal seul (margin auto) */</span>
+<span class="sel">div</span> {
+  <span class="prop">width</span>: <span class="cv">600px</span>;
+  <span class="prop">margin-left</span>: <span class="cv">auto</span>;
+  <span class="prop">margin-right</span>: <span class="cv">auto</span>;
 }
 
-<span class="cm">/* Alternative : seulement tous les éléments et pseudo-éléments */</span>
-<span class="sel">*, *::before, *::after</span> {
-  <span class="prop">box-sizing</span>: <span class="cv">border-box</span>;
-}</pre>
-  </div>
-
-  <!-- 4. CENTRAGE HORIZONTAL ET VERTICAL -->
-  <div class="sh">
-    <div class="sh-num">4</div>
-    <div class="sh-title">Réponses — 2.2 Centrer un élément</div>
-  </div>
-
-  <div class="g2">
-    <div class="card">
-      <div class="ch">
-        <span class="ch-name">Méthode 1 : Flexbox (RECOMMANDÉ)</span>
-      </div>
-      <pre><span class="cm">/* Conteneur parent */</span>
-<span class="sel">.container</span> {
+<span class="cm">/* Centrage complet avec Flexbox */</span>
+<span class="sel">body</span> {
   <span class="prop">display</span>: <span class="cv">flex</span>;
-  <span class="prop">justify-content</span>: <span class="cv">center</span>; <span class="cm">/* horizontal */</span>
-  <span class="prop">align-items</span>: <span class="cv">center</span>; <span class="cm">/* vertical */</span>
-  <span class="prop">height</span>: <span class="cv">100vh</span>; <span class="cm">/* hauteur plein écran */</span>
-}
-
-<span class="cm">/* Enfant */</span>
-<span class="sel">.box</span> {
-  <span class="prop">width</span>: <span class="cv">600px</span>;
+  <span class="prop">justify-content</span>: <span class="cv">center</span>;
+  <span class="prop">align-items</span>: <span class="cv">center</span>;
+  <span class="prop">min-height</span>: <span class="cv">100vh</span>;
 }</pre>
-    </div>
-
-    <div class="card">
-      <div class="ch">
-        <span class="ch-name">Méthode 2 : Grid</span>
-      </div>
-      <pre><span class="sel">.container</span> {
-  <span class="prop">display</span>: <span class="cv">grid</span>;
-  <span class="prop">place-items</span>: <span class="cv">center</span>;
-  <span class="prop">height</span>: <span class="cv">100vh</span>;
-}
-
-<span class="sel">.box</span> {
-  <span class="prop">width</span>: <span class="cv">600px</span>;
-}</pre>
-    </div>
-
-    <div class="card">
-      <div class="ch">
-        <span class="ch-name">Méthode 3 : Horizontal uniquement</span>
-      </div>
-      <pre><span class="sel">.box</span> {
-  <span class="prop">width</span>: <span class="cv">600px</span>;
-  <span class="prop">margin</span>: <span class="cv">0 auto</span>;
-}</pre>
-    </div>
-
-    <div class="card">
-      <div class="ch">
-        <span class="ch-name">Méthode 4 : Positionnement absolu</span>
-      </div>
-      <pre><span class="sel">.container</span> {
-  <span class="prop">position</span>: <span class="cv">relative</span>;
-  <span class="prop">height</span>: <span class="cv">100vh</span>;
-}
-
-<span class="sel">.box</span> {
-  <span class="prop">position</span>: <span class="cv">absolute</span>;
-  <span class="prop">top</span>: <span class="cv">50%</span>;
-  <span class="prop">left</span>: <span class="cv">50%</span>;
-  <span class="prop">transform</span>: <span class="cv">translate(-50%, -50%)</span>;
-  <span class="prop">width</span>: <span class="cv">600px</span>;
-}</pre>
-    </div>
-  </div>
-
-  <!-- 5. DÉMONSTRATION VISUELLE -->
-  <div class="sh">
-    <div class="sh-num">5</div>
-    <div class="sh-title">Démonstration visuelle — Box Model</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">content-box vs border-box</span>
-    </div>
-    <div class="demo-section">
-      <div class="demo-container">
-        <h3>content-box (défaut)</h3>
-        <div class="box-demo content-box">
-          <span class="label">Content: 300px</span>
-        </div>
-        <div class="box-label">
-          <div>padding: 20px</div>
-          <div>border: 5px</div>
-          <div><strong>Largeur totale: 350px</strong></div>
-        </div>
-      </div>
-
-      <div class="demo-container">
-        <h3>border-box</h3>
-        <div class="box-demo border-box">
-          <span class="label">Tout = 300px</span>
-        </div>
-        <div class="box-label">
-          <div>padding + border inclus</div>
-          <div><strong>Largeur totale: 300px</strong></div>
-        </div>
       </div>
     </div>
+
   </div>
 
-  <!-- 6. CENTRAGE - DÉMONSTRATION -->
-  <div class="sh">
-    <div class="sh-num">6</div>
-    <div class="sh-title">Démonstration — Centrage avec Flexbox</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">Résultat visuel</span>
-    </div>
-    <div class="center-demo">
-      <div class="centered-box">
-        <p>Élément centré<br>600px de large</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7. CONCEPTS CLÉ -->
-  <div class="sh">
-    <div class="sh-num">7</div>
-    <div class="sh-title">Concepts clés à retenir</div>
-  </div>
-
-  <div class="g3">
-    <div class="cc">
-      <div class="cc-icon">▸</div>
-      <div class="cc-title">content-box (défaut)</div>
-      <div class="cc-body">Width = contenu uniquement. Padding et border s'ajoutent à la largeur totale. Comportement surprenant pour les débutants.</div>
-    </div>
-    <div class="cc">
-      <div class="cc-icon">≈</div>
-      <div class="cc-title">border-box (recommandé)</div>
-      <div class="cc-body">Width inclut contenu + padding + border. Beaucoup plus intuitif et prévisible. À utiliser partout !</div>
-    </div>
-    <div class="cc">
-      <div class="cc-icon">∿</div>
-      <div class="cc-title">Centrage flexible</div>
-      <div class="cc-body">Flexbox et Grid rendent le centrage simple. Préférez-les à positionnement absolu ou margin auto.</div>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  <p>Exercice 2 — CSS Box Model</p>
-  <span>exercice-2.html</span>
-</footer>
+  <footer>
+    <p>Exercice 2 — TP 4 — exercice-2.html</p>
+  </footer>
 
 </body>
 </html>

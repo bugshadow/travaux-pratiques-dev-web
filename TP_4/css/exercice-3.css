@@ -1,95 +1,49 @@
-/* ===== EXERCICE 3 — FLEXBOX ===== */
+/* Exercice 3 : Flexbox */
 
-/* Navbar Demo */
-.navbar-demo {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #333;
   padding: 15px 30px;
-  border-radius: 3px;
-  margin: 20px 0;
 }
 
-.logo-demo {
+.logo {
   color: white;
   font-weight: bold;
-  font-size: 20px;
 }
 
-.nav-links-demo {
+.nav-links {
   display: flex;
   list-style: none;
   gap: 20px;
-  margin: 0;
-  padding: 0;
 }
 
-.nav-links-demo a {
+.nav-links a {
   color: white;
   text-decoration: none;
-  transition: color 0.3s;
 }
 
-.nav-links-demo a:hover {
-  color: #0066cc;
-}
-
-/* Cards Demo */
-.cards-demo {
+.cards {
   display: flex;
   gap: 20px;
   margin: 20px 0;
 }
 
-.card-demo {
+.card {
   flex: 1;
   display: flex;
   flex-direction: column;
   background-color: white;
   border: 1px solid #ddd;
   padding: 20px;
-  border-radius: 5px;
 }
 
-.card-demo h3 {
-  margin: 0 0 10px 0;
-  color: #333;
-}
-
-.card-demo p {
-  flex-grow: 1;
-  margin: 0 0 15px 0;
-  color: #666;
-  font-size: 14px;
-}
-
-.card-demo a {
-  background-color: #0066cc;
+.card-link {
+  background-color: #bb5544;
   color: white;
-  padding: 8px 12px;
+  padding: 5px 10px;
   text-decoration: none;
-  border-radius: 3px;
   align-self: flex-start;
-  transition: background-color 0.3s;
-}
-
-.card-demo a:hover {
-  background-color: #0052a3;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-  .navbar-demo {
-    flex-direction: column;
-  }
-
-  .nav-links-demo {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .cards-demo {
-    flex-direction: column;
-  }
+  margin-top: auto;
 }

@@ -5,35 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exercice 5 — Responsive Design</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/exercice-5.css">
 </head>
 <body>
 
-<nav class="topbar">
-  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
-  <span class="topbar-brand">CSS · Exercice 5</span>
-  <span class="topbar-pill">Responsive</span>
-</nav>
+  <nav class="topbar">
+    <a href="../index.html" class="home-btn">← Accueil TP 4</a>
+    <span class="topbar-brand">Exercice 5</span>
+    <span class="topbar-pill">Responsive Design</span>
+  </nav>
 
-<header class="hero">
-  <div class="hero-eyebrow">Cours CSS</div>
-  <h1>Responsive Design</h1>
-  <p class="hero-sub">Mobile First · Media Queries · Tablette & Desktop</p>
-</header>
+  <header class="hero">
+    <h1>Exercice 5 : Responsive Design</h1>
+    <p class="hero-sub">Mobile First et Media Queries</p>
+  </header>
 
-<div class="page">
+  <div class="page">
 
-  <!-- 1. BASE MOBILE FIRST -->
-  <div class="sh">
-    <div class="sh-num">1</div>
-    <div class="sh-title">5.1 Approche Mobile First</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">CSS (Code de base)</span>
+    <!-- 5.1 MOBILE FIRST -->
+    <div class="sh">
+      <span class="sh-num">5.1</span>
+      <span class="sh-title">Mobile First (Tablette & Desktop)</span>
     </div>
-    <pre><span class="cm">/* Base mobile (Mobile First) */</span>
+
+    <div class="card">
+      <div class="ch">CSS : Base Mobile First</div>
+      <div class="card-body">
+        <pre><span class="cm">/* Base pour mobile (déjà donnée) */</span>
 <span class="sel">.container</span> {
   <span class="prop">width</span>: <span class="cv">100%</span>;
   <span class="prop">padding</span>: <span class="cv">15px</span>;
@@ -42,105 +39,44 @@
 <span class="sel">.nav-menu</span> {
   <span class="prop">display</span>: <span class="cv">flex</span>;
   <span class="prop">flex-direction</span>: <span class="cv">column</span>;
-  <span class="prop">gap</span>: <span class="cv">10px</span>;
+  <span class="prop">gap</span>: <span class="cv">5px</span>;
 }
 
-<span class="sel">.sidebar</span> {
-  <span class="prop">display</span>: <span class="cv">none</span>; <span class="cm">/* Caché sur mobile */</span>
-}</pre>
-  </div>
-
-  <!-- 2. RÉPONSE MEDIA QUERIES -->
-  <div class="sh">
-    <div class="sh-num">2</div>
-    <div class="sh-title">Réponse — Ajout des Media Queries</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">style.css</span>
+<span class="sel">.content</span> { <span class="prop">display</span>: <span class="cv">block</span>; }
+<span class="sel">.sidebar</span> { <span class="prop">display</span>: <span class="cv">none</span>; }</pre>
+      </div>
     </div>
-    <pre><span class="cm">/* Tablette (min-width: 768px) */</span>
+
+    <div class="card">
+      <div class="ch">Solution : Media Queries (Tablette & Desktop)</div>
+      <div class="card-body">
+        <pre><span class="cm">/* Tablette (min-width: 768px) */</span>
 <span class="sel">@media (min-width: 768px)</span> {
   <span class="sel">.nav-menu</span> {
-    <span class="prop">flex-direction</span>: <span class="cv">row</span>; <span class="cm">/* Menu horizontal */</span>
-  }
-  <span class="sel">.container</span> {
-    <span class="prop">max-width</span>: <span class="cv">750px</span>;
-    <span class="prop">margin</span>: <span class="cv">0 auto</span>;
+    <span class="prop">flex-direction</span>: <span class="cv">row</span>;
+    <span class="prop">justify-content</span>: <span class="cv">space-between</span>;
   }
 }
 
 <span class="cm">/* Desktop (min-width: 1024px) */</span>
 <span class="sel">@media (min-width: 1024px)</span> {
   <span class="sel">.container</span> {
-    <span class="prop">max-width</span>: <span class="cv">1000px</span>;
-    <span class="prop">display</span>: <span class="cv">grid</span>;
-    <span class="prop">grid-template-columns</span>: <span class="cv">250px 1fr</span>;
+    <span class="prop">display</span>: <span class="cv">flex</span>;
   }
   <span class="sel">.sidebar</span> {
-    <span class="prop">display</span>: <span class="cv">block</span>; <span class="cm">/* Affiché sur desktop */</span>
+    <span class="prop">display</span>: <span class="cv">block</span>;
+    <span class="prop">width</span>: <span class="cv">250px</span>;
   }
+  <span class="sel">.content</span> { <span class="prop">flex</span>: <span class="cv">1</span>; }
 }</pre>
-  </div>
-
-  <!-- 3. DÉMO RESPONSIVE -->
-  <div class="sh">
-    <div class="sh-num">3</div>
-    <div class="sh-title">Démonstration — Mise en page Adaptative</div>
-  </div>
-
-  <div class="card">
-    <div class="ch">
-      <span class="ch-name">Résultat (Réduisez la largeur de votre navigateur)</span>
-    </div>
-    <div class="demo-wrapper">
-      <div class="responsive-container-demo">
-        <nav class="nav-menu-demo">
-          <div class="nav-item">Lien 1</div>
-          <div class="nav-item">Lien 2</div>
-          <div class="nav-item">Lien 3</div>
-        </nav>
-        <div class="main-content-demo">
-          <aside class="sidebar-demo">Sidebar (Desktop uniquement)</aside>
-          <section class="content-demo">
-            <h3>Contenu Principal</h3>
-            <p>Ce layout change radicalement selon la taille de l'écran.</p>
-            <p><strong>Mobile :</strong> Menu vertical, pas de sidebar.</p>
-            <p><strong>Tablette :</strong> Menu horizontal.</p>
-            <p><strong>Desktop :</strong> Sidebar affichée à gauche.</p>
-          </section>
-        </div>
       </div>
     </div>
+
   </div>
 
-  <!-- 4. CONCEPTS CLÉ -->
-  <div class="sh">
-    <div class="sh-num">4</div>
-    <div class="sh-title">Concepts clé — À retenir !</div>
-  </div>
-
-  <div class="g3">
-    <div class="card">
-      <div class="ch">Mobile First</div>
-      <p>On définit d'abord le style pour mobile, puis on ajoute les contraintes pour les écrans plus grands avec <strong>min-width</strong>.</p>
-    </div>
-    <div class="card">
-      <div class="ch">Media Queries</div>
-      <p>Utilisez `@media` pour appliquer des styles uniquement si une condition (ex: largeur d'écran) est remplie.</p>
-    </div>
-    <div class="card">
-      <div class="ch">Breakpoints</div>
-      <p>Les points de rupture communs sont souvent 768px (tablettes) et 1024px (ordinateurs).</p>
-    </div>
-  </div>
-
-</div>
-
-<footer class="footer">
-  <p>Exercice CSS · Responsive Design | <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">Documentation MDN</a></p>
-</footer>
+  <footer>
+    <p>Exercice 5 — TP 4 — exercice-5.html</p>
+  </footer>
 
 </body>
 </html>

@@ -3,108 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercices CSS — Accueil</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>TP 4 — Programmation Web</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<nav class="topbar f1">
-  <span class="topbar-brand">CSS · Exercices</span>
-  <span class="topbar-pill">Sélecteurs & Spécificité</span>
-</nav>
+  <nav class="topbar">
+    <span class="topbar-brand">Travaux Pratiques 4</span>
+    <span class="topbar-pill">HTML & CSS</span>
+  </nav>
 
-<header class="hero f1">
-  <div class="hero-eyebrow">Bienvenue</div>
-  <h1>Exercices CSS — <i>Apprentissage</i></h1>
-  <p class="hero-sub">Sélecteurs · Spécificité · Cascade CSS</p>
-</header>
+  <header class="hero">
+    <h1>Exercices CSS</h1>
+    <p class="hero-sub">Sélecteurs, Box Model, Flexbox et Grid Layout</p>
+  </header>
 
-<div class="page">
+  <div class="page">
 
-  <div class="sh f2">
-    <div class="sh-num">1</div>
-    <div class="sh-title">Les Exercices Disponibles</div>
-    <div class="sh-line"></div>
-  </div>
-
-  <div class="buttons-container f2">
-    <a href="pages/exercice-1.html" class="btn">
-      Exercice 1 — Sélecteurs & Spécificité
-    </a>
-    <a href="pages/exercice-2.html" class="btn">
-      Exercice 2 — Box Model
-    </a>
-    <a href="pages/exercice-3.html" class="btn">
-      Exercice 3 — Flexbox
-    </a>
-    <a href="pages/exercice-4.html" class="btn">
-      Exercice 4 — CSS Grid
-    </a>
-    <a href="pages/exercice-5.html" class="btn">
-      Exercice 5 — Responsive Design
-    </a>
-    <a href="pages/exercice-6.html" class="btn">
-      Exercice 6 — Variables & Thèmes
-    </a>
-    <a href="pages/exercice-7.html" class="btn">
-      Exercice 7 — Transitions & Animations
-    </a>
-    <a href="pages/exercice-8.html" class="btn">
-      Exercice 8 — Quiz de révision
-    </a>
-  </div>
-
-  <div class="sh f3">
-    <div class="sh-num">2</div>
-    <div class="sh-title">À propos de cet apprentissage</div>
-    <div class="sh-line"></div>
-  </div>
-
-  <div class="g3 f3">
-    <div class="cc">
-      <div class="cc-icon">▸</div>
-      <div class="cc-title">Sélecteurs CSS</div>
-      <div class="cc-body">Maîtrisez les différents types de sélecteurs : éléments, classes, IDs, combinateurs et pseudo-classes pour cibler précisément vos éléments HTML.</div>
+    <div class="sh">
+      <span class="sh-num">1</span>
+      <span class="sh-title">Liste des exercices</span>
     </div>
-    <div class="cc">
-      <div class="cc-icon">≈</div>
-      <div class="cc-title">Spécificité CSS</div>
-      <div class="cc-body">Comprenez comment le navigateur calcule la priorité des règles CSS. Un concept essentiel pour déboguer et structurer votre code correctement.</div>
+
+    <div class="buttons-container">
+      <a href="pages/exercice-1.html" class="btn">Ex 1 : Sélecteurs</a>
+      <a href="pages/exercice-2.html" class="btn">Ex 2 : Box Model</a>
+      <a href="pages/exercice-3.html" class="btn">Ex 3 : Flexbox</a>
+      <a href="pages/exercice-4.html" class="btn">Ex 4 : CSS Grid</a>
+      <a href="pages/exercice-5.html" class="btn">Ex 5 : Responsive</a>
+      <a href="pages/exercice-6.html" class="btn">Ex 6 : Variables</a>
+      <a href="pages/exercice-7.html" class="btn">Ex 7 : Animations</a>
+      <a href="pages/exercice-8.html" class="btn">Ex 8 : Quiz Final</a>
     </div>
-    <div class="cc">
-      <div class="cc-icon">∿</div>
-      <div class="cc-title">Cascade CSS</div>
-      <div class="cc-body">Explorez l'ordre de priorité des styles : !important, spécificité et ordre d'apparition. Fondamental pour une architecture CSS maintenable.</div>
+
+    <div class="sh">
+      <span class="sh-num">2</span>
+      <span class="sh-title">Informations</span>
     </div>
+
+    <div class="card">
+      <div class="ch">À propos de ce TP</div>
+      <div class="card-body">
+        <p>Ce dossier contient les travaux pratiques sur les fondamentaux du CSS moderne. Chaque exercice traite un point spécifique du cours avec des exemples et des démonstrations.</p>
+      </div>
+    </div>
+
   </div>
 
-  <div class="sh f4">
-    <div class="sh-num">3</div>
-    <div class="sh-title">Comment utiliser ces exercices</div>
-    <div class="sh-line"></div>
-  </div>
-
-  <div class="card f4">
-    <div class="ch">
-      <div class="ch-dots"><span class="d dr"></span><span class="d dy"></span><span class="d dg"></span></div>
-      <span class="ch-name">Guide d'utilisation</span>
-    </div>
-    <div style="padding: 1.4rem 1.6rem; color: var(--text); line-height: 1.8;">
-      <p style="margin-bottom: 1rem;"><strong>Étape 1 :</strong> Cliquez sur le bouton "Exercice 1" ci-dessus pour accéder au premier exercice.</p>
-      <p style="margin-bottom: 1rem;"><strong>Étape 2 :</strong> Vous verrez le code HTML donné au départ, les solutions CSS proposées, et un aperçu en direct du rendu.</p>
-      <p style="margin-bottom: 1rem;"><strong>Étape 3 :</strong> Étudiez chaque réponse, comprenez les sélecteurs utilisés et comment ils fonctionnent.</p>
-      <p style="margin-bottom: 1rem;"><strong>Étape 4 :</strong> Vérifiez votre compréhension en lisant les explications détaillées pour chaque question.</p>
-      <p><strong>Étape 5 :</strong> Pratiquez en modifiant le code — essayez de changer les sélecteurs pour voir comment les styles se modifient.</p>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  <p>Exercices CSS — Formation Web</p>
-  <span>index.html</span>
-</footer>
+  <footer>
+    <p>TP 4 — Programmation Web — index.html</p>
+  </footer>
 
 </body>
 </html>
