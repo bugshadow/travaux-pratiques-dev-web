@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 4 — CSS Grid</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/exercice-4.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="home-btn">← Retour à l'accueil</a>
+  <span class="topbar-brand">CSS · Exercice 4</span>
+  <span class="topbar-pill">CSS Grid</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Cours CSS</div>
+  <h1>CSS Grid</h1>
+  <p class="hero-sub">Grille responsive · Layout complet · Grid Areas</p>
+</header>
+
+<div class="page">
+
+  <!-- 1. GRILLE DE CARTES -->
+  <div class="sh">
+    <div class="sh-num">1</div>
+    <div class="sh-title">4.1 Grille de cartes responsive</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">HTML</span>
+    </div>
+    <pre><span class="sel">&lt;div class="grid-cards"&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"card"</span><span class="t">&gt;</span>Carte 1<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"card"</span><span class="t">&gt;</span>Carte 2<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"card"</span><span class="t">&gt;</span>Carte 3<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"card"</span><span class="t">&gt;</span>Carte 4<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"card"</span><span class="t">&gt;</span>Carte 5<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class</span>=<span class="v">"card"</span><span class="t">&gt;</span>Carte 6<span class="t">&lt;/div&gt;</span>
+<span class="sel">&lt;/div&gt;</span></pre>
+  </div>
+
+  <!-- 2. RÉPONSE GRILLE -->
+  <div class="sh">
+    <div class="sh-num">2</div>
+    <div class="sh-title">Réponse — Grille avec CSS Grid</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">style.css</span>
+    </div>
+    <pre><span class="cm">/* Conteneur de grille */</span>
+<span class="sel">.grid-cards</span> {
+  <span class="prop">display</span>: <span class="cv">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="cv">repeat(auto-fit, minmax(200px, 1fr))</span>;
+  <span class="prop">gap</span>: <span class="cv">20px</span>; <span class="cm">/* espace entre les cartes */</span>
+  <span class="prop">margin</span>: <span class="cv">20px 0</span>;
+}
+
+<span class="sel">.grid-cards .card</span> {
+  <span class="prop">background-color</span>: <span class="cv">white</span>;
+  <span class="prop">border</span>: <span class="cv">1px solid #ddd</span>;
+  <span class="prop">padding</span>: <span class="cv">20px</span>;
+  <span class="prop">border-radius</span>: <span class="cv">5px</span>;
+  <span class="prop">text-align</span>: <span class="cv">center</span>;
+  <span class="prop">font-weight</span>: <span class="cv">bold</span>;
+}</pre>
+  </div>
+
+  <!-- 3. DÉMO GRILLE -->
+  <div class="sh">
+    <div class="sh-num">3</div>
+    <div class="sh-title">Démonstration — Grille responsive</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">Résultat (Redimensionnez la fenêtre pour voir l'effet)</span>
+    </div>
+    <div class="grid-cards-demo">
+      <div class="grid-card-demo">Carte 1</div>
+      <div class="grid-card-demo">Carte 2</div>
+      <div class="grid-card-demo">Carte 3</div>
+      <div class="grid-card-demo">Carte 4</div>
+      <div class="grid-card-demo">Carte 5</div>
+      <div class="grid-card-demo">Carte 6</div>
+    </div>
+  </div>
+
+  <!-- 4. LAYOUT COMPLET -->
+  <div class="sh">
+    <div class="sh-num">4</div>
+    <div class="sh-title">4.2 Layout complet avec Grid Areas</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">HTML</span>
+    </div>
+    <pre><span class="sel">&lt;div class="page-layout"&gt;</span>
+  <span class="t">&lt;header</span> <span class="a">class</span>=<span class="v">"header"</span><span class="t">&gt;</span>Header<span class="t">&lt;/header&gt;</span>
+  <span class="t">&lt;nav</span> <span class="a">class</span>=<span class="v">"sidebar"</span><span class="t">&gt;</span>Sidebar<span class="t">&lt;/nav&gt;</span>
+  <span class="t">&lt;main</span> <span class="a">class</span>=<span class="v">"main"</span><span class="t">&gt;</span>Contenu principal<span class="t">&lt;/main&gt;</span>
+  <span class="t">&lt;footer</span> <span class="a">class</span>=<span class="v">"footer"</span><span class="t">&gt;</span>Footer<span class="t">&lt;/footer&gt;</span>
+<span class="sel">&lt;/div&gt;</span></pre>
+  </div>
+
+  <!-- 5. RÉPONSE LAYOUT -->
+  <div class="sh">
+    <div class="sh-num">5</div>
+    <div class="sh-title">Réponse — Layout avec grid-template-areas</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">style.css</span>
+    </div>
+    <pre><span class="cm">/* Conteneur principal */</span>
+<span class="sel">.page-layout</span> {
+  <span class="prop">display</span>: <span class="cv">grid</span>;
+  <span class="prop">grid-template-areas</span>: 
+    <span class="cv">"header header"</span>
+    <span class="cv">"sidebar main"</span>
+    <span class="cv">"footer footer"</span>;
+  <span class="prop">grid-template-columns</span>: <span class="cv">250px 1fr</span>; <span class="cm">/* sidebar fixe, main fluide */</span>
+  <span class="prop">grid-template-rows</span>: <span class="cv">auto 1fr auto</span>;
+  <span class="prop">gap</span>: <span class="cv">15px</span>;
+  <span class="prop">min-height</span>: <span class="cv">400px</span>;
+}
+
+<span class="sel">.page-layout .header</span> { <span class="prop">grid-area</span>: <span class="cv">header</span>; }
+<span class="sel">.page-layout .sidebar</span> { <span class="prop">grid-area</span>: <span class="cv">sidebar</span>; }
+<span class="sel">.page-layout .main</span> { <span class="prop">grid-area</span>: <span class="cv">main</span>; }
+<span class="sel">.page-layout .footer</span> { <span class="prop">grid-area</span>: <span class="cv">footer</span>; }
+
+<span class="cm">/* Éléments internes pour présentation */</span>
+<span class="sel">.page-layout &gt; *</span> {
+  <span class="prop">background-color</span>: <span class="cv">#eef2f5</span>;
+  <span class="prop">border</span>: <span class="cv">1px dashed #99aab5</span>;
+  <span class="prop">padding</span>: <span class="cv">20px</span>;
+  <span class="prop">display</span>: <span class="cv">flex</span>;
+  <span class="prop">align-items</span>: <span class="cv">center</span>;
+  <span class="prop">justify-content</span>: <span class="cv">center</span>;
+  <span class="prop">font-weight</span>: <span class="cv">bold</span>;
+  <span class="prop">color</span>: <span class="cv">#333</span>;
+}
+
+<span class="cm">/* Responsive mobile */</span>
+<span class="sel">@media (max-width: 768px)</span> {
+  <span class="sel">.page-layout</span> {
+    <span class="prop">grid-template-areas</span>: 
+      <span class="cv">"header"</span>
+      <span class="cv">"sidebar"</span>
+      <span class="cv">"main"</span>
+      <span class="cv">"footer"</span>;
+    <span class="prop">grid-template-columns</span>: <span class="cv">1fr</span>;
+  }
+}</pre>
+  </div>
+
+  <!-- 6. DÉMO LAYOUT -->
+  <div class="sh">
+    <div class="sh-num">6</div>
+    <div class="sh-title">Démonstration — Mise en page complète</div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <span class="ch-name">Résultat (Redimensionnez sous 768px pour voir la sidebar passer au-dessus)</span>
+    </div>
+    <div class="page-layout-demo">
+      <header class="header-demo">Header</header>
+      <nav class="sidebar-demo">Sidebar</nav>
+      <main class="main-demo">Contenu principal</main>
+      <footer class="footer-demo">Footer</footer>
+    </div>
+  </div>
+
+  <!-- 7. CONCEPTS CLÉ -->
+  <div class="sh">
+    <div class="sh-num">7</div>
+    <div class="sh-title">Concepts clé — À retenir !</div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="ch">repeat(auto-fit, minmax(...))</div>
+      <p>Crée des colonnes responsives <strong>sans media queries</strong>. <em>auto-fit</em> remplit l'espace avec autant de colonnes que possible de largeur minimum (ex: 200px).</p>
+    </div>
+    <div class="card">
+      <div class="ch">grid-template-areas</div>
+      <p>Permet de "dessiner" visuellement la mise en page en nommant les zones à l'aide de chaînes de caractères. Très intuitif !</p>
+    </div>
+    <div class="card">
+      <div class="ch">grid-area</div>
+      <p>Associe un élément HTML à un nom de zone définit dans la grille parente, permettant de le placer facilement.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Exercice CSS · CSS Grid | <a href="https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout" target="_blank">Documentation MDN</a></p>
+</footer>
+
+</body>
+</html>
