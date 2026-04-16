@@ -31,6 +31,7 @@ travaux-pratiques-dev-web/
 ├── TP_2/              CSS & Mise en page (Formulaire Inscription complet)
 ├── TP_3/              JavaScript & Interactivité (Site de l'Agence GPM)
 ├── TP_4/              CSS Moderne & Layouts (Sélecteurs, Grid, Flex, Responsive)
+├── TP_JS/             Exercices JavaScript - Manipulation du DOM
 └── README.md          Documentation
 ```
 
@@ -80,6 +81,14 @@ travaux-pratiques-dev-web/
 - **Spécificités techniques :** Mise en œuvre de la méthodologie *Mobile First* (`min-width`), exploitation des unités fractionnaires (`1fr`), et mise en place d'un système de thèmes dynamiques par variables CSS. Design épuré respectant une palette "terracotta" professionnelle.
 
 **Technologies :** CSS3 Modern, Flexbox, CSS Grid, Responsive Design, Animations @keyframes, Variables CSS.
+
+### [TP JS - Exercices JavaScript : Manipulation du DOM](./TP_JS/exercices.html)
+
+**Objectif :** Maîtriser les interactions avec le DOM en Vanilla JS.
+- **Contenu et réalisation :** 10 exercices progressifs sur une même page axés sur les manipulations textuelles, la gestion dynamique de classes, la création de listes To-Do, et les compteurs avec conditions.
+- **Spécificités techniques :** Utilisation des fonctions JavaScript `querySelector`, `classList`, `innerHTML`, gestion d'événements (`onclick`, `onkeyup`), manipulation de styles CSS inline avec conditions.
+
+**Technologies :** Vanilla JavaScript, DOM manipulations, Événements.
 
 ---
 
