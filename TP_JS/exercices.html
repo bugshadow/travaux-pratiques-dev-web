@@ -385,21 +385,46 @@
         <script>
             function incrementer() {
                 // À compléter : Augmenter le compteur et ajuster la couleur
+                var count = document.querySelector("#compteur");
+                var valeur = parseInt(count.innerText);
+                valeur++;
+                count.innerText =valeur;
+                ajusterCouleur(valeur);
+                
                 
             }
             
             function decrementer() {
                 // À compléter : Diminuer le compteur et ajuster la couleur
-                
+                var count = document.querySelector("#compteur");
+                var valeur = parseInt(count.innerText);
+                valeur--;
+                count.innerText =valeur;
+                ajusterCouleur(valeur);
             }
             
             function reinitialiser() {
                 // À compléter : Remettre à 0 et couleur noire
+                var count = document.querySelector("#compteur");
+                var valeur = parseInt(count.innerText);
+                valeur=0;
+                count.innerText =valeur;
+                count.style.color="black";
                 
             }
             
             function ajusterCouleur(valeur) {
                 // À compléter : Fonction helper pour ajuster la couleur
+                var count = document.querySelector("#compteur");
+                if (valeur<0){
+                    count.style.color="red";
+                }
+                else if(valeur ==0){
+                    count.style.color="black";
+                }
+                else{
+                    count.style.color="green";
+                }
                 
             }
         </script>
