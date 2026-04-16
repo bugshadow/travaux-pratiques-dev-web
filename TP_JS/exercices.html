@@ -307,11 +307,17 @@
         <script>
             function afficherNom() {
                 // À compléter : Afficher "Bonjour [nom] !" dans le paragraphe
+                var affichage = document.querySelector("#affichage7");
+                var nom = document.querySelector("#nom").value;
+                affichage.innerText="Bonjour " + nom + "!";
                 
             }
             
             function appliquerCouleur() {
                 // À compléter : Appliquer la couleur sélectionnée au paragraphe
+                var affichage = document.querySelector("#affichage7");
+                var couleur = document.querySelector("#couleur").value;
+                affichage.style.color = couleur;
                 
             }
         </script>
