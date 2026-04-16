@@ -182,16 +182,23 @@
         <script>
             function ajouterClasse() {
                 // À compléter : Ajouter les classes "rouge" et "grand-texte"
-                
+                var pr =document.querySelector("#paragraphe4");
+                pr.classList.add("rouge");
+                pr.classList.add("grand-texte");                
             }
             
             function enleverClasse() {
                 // À compléter : Enlever les classes "rouge" et "grand-texte"
+                var pr =document.querySelector("#paragraphe4");
+                pr.classList.remove("rouge");
+                pr.classList.remove("grand-texte");   
                 
             }
             
             function basculerClasse() {
                 // À compléter : Utiliser classList.toggle() pour "bordure"
+                var pr =document.querySelector("#paragraphe4");
+                pr.classList.toggle("bordure");
                 
             }
         </script>
