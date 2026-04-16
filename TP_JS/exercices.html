@@ -459,13 +459,32 @@
         
         <script>
             function afficherOnglet(numero) {
-                // À compléter : 
-                // 1. Cacher tous les contenus
-                // 2. Afficher le contenu sélectionné
-                // 3. Enlever la classe "actif" de tous les boutons
-                // 4. Ajouter la classe "actif" au bouton cliqué
-                
+
+                // 1. récupérer tous les contenus et boutons
+                let contenus = document.querySelectorAll(".contenu-onglet");
+                let onglets = document.querySelectorAll(".onglet");
+
+                // 2. cacher tous les contenus
+                for (let i = 0; i < contenus.length; i++) {
+                    contenus[i].classList.remove("visible");
+                    contenus[i].classList.add("cache");
+                }
+
+                // 3. afficher le contenu sélectionné
+                let contenuActif = document.querySelector("#contenu" + numero);
+                contenuActif.classList.remove("cache");
+                contenuActif.classList.add("visible");
+
+                // 4. gérer les onglets (boutons)
+                for (let i = 0; i < onglets.length; i++) {
+                    onglets[i].classList.remove("actif");
+                }
+
+                // 5. activer le bon onglet
+                onglets[numero - 1].classList.add("actif");
             }
+
+        
         </script>
     </div>
    
