@@ -342,16 +342,25 @@
             function ajouterTache() {
                 // À compléter : Ajouter une nouvelle tâche à la liste
                 // Format : <li>Tâche <button onclick="supprimerTache(this)">X</button></li>
-                
+                var task = document.querySelector("#tache").value;
+                var li = document.createElement("li");
+                li.innerHTML = task + '<button onclick="supprimerTache(this)">X</button>';
+                document.querySelector("#listeTaches").appendChild(li);
+                document.querySelector("#tache").value = ""; 
+
             }
             
             function supprimerTache(bouton) {
                 // À compléter : Supprimer l'élément parent du bouton (le <li>)
+                var li = bouton.parentElement;
+                li.remove();
                 
             }
             
             function effacerTout() {
                 // À compléter : Vider toute la liste
+                document.querySelector("#listeTaches").innerHTML ="";
+
                 
             }
         </script>
