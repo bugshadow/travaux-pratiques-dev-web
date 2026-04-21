@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP HTTP</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+
+        } 
+        
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <select name="methode" id="methode" required>
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+        <input type="text" name="url" id="url" placeholder="Enter URL" required>
+        <button id="submit">Envoyer</button>
+        <br>
+        <input type="text" name="HEAderKEy" id="HEAderKEy" placeholder="Header key" required>
+        <input type="text" name="HeaderValue" id="HeaderValue" placeholder="Header value" required>
+        <button>+</button>
+        <br>
+        <textarea name="Body" id="Body" placeholder="Body"></textarea>
+        <hr>
+        <textarea name="REsponsebody" id="REsponsebody" placeholder="Response body" readonly></textarea>
+
+
+
+    </form>
+    <script>
+        var methode = document.querySelector('#methode');
+        var url = document.querySelector('#url');
+        var headerkey = document.querySelector('#HEAderKEy');
+        var buttonsubmit = document.querySelector('#submit');
+        var headervalue = document.querySelector('#HeaderValue');
+        var body = document.querySelector('#Body');
+        var responsebody = document.querySelector('#REsponsebody');
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            xhr.open(methode.value,url.value);
+            xhr.setRequestHeader(headerkey.value, headervalue.value);
+            xhr.onload = function(event){
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    responsebody.value = xhr.responseText;
+                } else {
+                    responsebody.value = 'Error: ' + xhr.status;
+                }
+            }
+            xhr.send(body.value);
+        })
+
+
+
+    </script>
+</body>
+</html>
