@@ -24,9 +24,9 @@
         <input type="text" name="url" id="url" placeholder="Enter URL" required>
         <button id="submit">Envoyer</button>
         <br>
-        <input type="text" name="HEAderKEy" id="HEAderKEy" placeholder="Header key" required>
-        <input type="text" name="HeaderValue" id="HeaderValue" placeholder="Header value" required>
-        <button>+</button>
+        <input type="text" name="HEAderKEy" id="HEAderKEy" placeholder="Header key">
+        <input type="text" name="HeaderValue" id="HeaderValue" placeholder="Header value">
+        <button type="button">+</button>
         <br>
         <textarea name="Body" id="Body" placeholder="Body"></textarea>
         <hr>
@@ -48,13 +48,15 @@
             event.preventDefault();
             var xhr = new XMLHttpRequest();
             xhr.open(methode.value,url.value);
-            xhr.setRequestHeader(headerkey.value, headervalue.value);
+            if (headerkey.value && headervalue.value) {
+                    xhr.setRequestHeader(headerkey.value, headervalue.value);}
             xhr.onload = function(event){
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    responsebody.value = xhr.responseText;
-                } else {
-                    responsebody.value = 'Error: ' + xhr.status;
-                }
+                let result ="";
+
+                result+= "status :" +xhr.status + "\n";
+                result += "header" + xhr.getAllResponseHeaders() + "\n";
+                result += "body" + xhr.responseText + "\n";
+                responsebody.value =result;
             }
             xhr.send(body.value);
         })
