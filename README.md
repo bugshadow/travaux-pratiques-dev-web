@@ -155,5 +155,5 @@ Pour approfondir vos connaissances, consultez :
 **Projet créé dans le cadre du cursus en développement web**
 
 Dernière mise à jour: avril 2026
-
+<center>ALL IS GOOD</center>
 </div>
