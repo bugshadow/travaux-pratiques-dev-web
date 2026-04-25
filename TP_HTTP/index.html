@@ -1,83 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP HTTP</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
-
-        } 
-        input, select, textarea {
-                margin: 5px;
-                padding: 5px;
-                width: 300px;
-        }
-        button {
-                margin: 5px;
-                padding: 5px 10px;
-            }
-        textarea {
-                height: 150px;
-            }
-        hr {
-                margin: 20px 0;
-            }
-        
-    </style>
+    <title>Solutions TP - Protocole HTTP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="" method="post">
-        <select name="methode" id="methode" required>
-            <option value="GET">GET</option>
-            <option value="POST">POST</option>
-            <option value="PUT">PUT</option>
-            <option value="DELETE">DELETE</option>
-        </select>
-        <input type="text" name="url" id="url" placeholder="Enter URL" required>
-        <button id="submit">Envoyer</button>
-        <br>
-        <input type="text" name="HEAderKEy" id="HEAderKEy" placeholder="Header key">
-        <input type="text" name="HeaderValue" id="HeaderValue" placeholder="Header value">
-        <button type="button">+</button>
-        <br>
-        <textarea name="Body" id="Body" placeholder="Body"></textarea>
-        <hr>
-        <textarea name="REsponsebody" id="REsponsebody" placeholder="Response body" readonly></textarea>
 
+    <h1>Solutions : Chapitre 6 - Le Protocole HTTP</h1>
+    <p><em>Voici mes reponses aux differents exercices pratiques et theoriques.</em></p>
 
+    <div class="answers">
+        <h2>TP 1 : Exploration avec les DevTools</h2>
+        
+        <h3>1.4 Exercice : Codes de statut</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Methode</th>
+                    <th>Code</th>
+                    <th>Content-Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>httpbin.org/get</td>
+                    <td>GET</td>
+                    <td>200 OK</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>httpbin.org/post</td>
+                    <td>POST</td>
+                    <td>200 OK</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>httpbin.org/status/201</td>
+                    <td>GET (par defaut)</td>
+                    <td>201 Created</td>
+                    <td>text/html </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    </form>
-    <script>
-        var methode = document.querySelector('#methode');
-        var url = document.querySelector('#url');
-        var headerkey = document.querySelector('#HEAderKEy');
-        var buttonsubmit = document.querySelector('#submit');
-        var headervalue = document.querySelector('#HeaderValue');
-        var body = document.querySelector('#Body');
-        var responsebody = document.querySelector('#REsponsebody');
-        var form = document.querySelector('form');
-        form.addEventListener('submit', function(event){
-            event.preventDefault();
-            var xhr = new XMLHttpRequest();
-            xhr.open(methode.value,url.value);
-            if (headerkey.value && headervalue.value) {
-                    xhr.setRequestHeader(headerkey.value, headervalue.value);}
-            xhr.onload = function(event){
-                let result ="";
+    <div class="answers">
+        <h2>TP 2 : Maîtrise de cURL</h2>
+        
+        <h3>Question 2.1</h3>
+        <p><strong>Quelle est la difference entre -i et -v ?</strong><br>
+        <code>-i</code> (include) inclut uniquement les en-têtes HTTP de la <i>reponse</i> dans la sortie en plus du corps.<br>
+        <code>-v</code> (verbose) est le mode de debogage. Il affiche toute la chronologie (resolution DNS, handshake TCP/TLS, en-têtes de <i>requête</i> envoyes (avec >), en-têtes de <i>reponse</i> reçus (avec <) et d'autres informations de contexte.</p>
 
-                result+= "status :" +xhr.status + "\n";
-                result += "header" + xhr.getAllResponseHeaders() + "\n";
-                result += "body" + xhr.responseText + "\n";
-                responsebody.value =result;
+        <h3>Exercice avance</h3>
+        <p>Commande cURL demandee :</p>
+        <pre>curl -i -X POST \
+  -H "Content-Type: application/json" \
+  -H "X-Custom-Header: MonHeader" \
+  -d '{"action": "test", "value": 42}' \
+  https://httpbin.org/post</pre>
+        <p><em>Explication</em> : <code>-i</code> permet d'afficher les en-têtes de la reponse de maniere lisible. <code>-X POST</code> n'est pas strictement necessaire ici vu qu'on utilise <code>-d</code>, mais c'est bien de le preciser.</p>
+    </div>
+
+    <div class="answers">
+        <h2>TP 3 : API REST avec JavaScript</h2>
+        
+        <h3>Exercice pratique : fetchWithRetry</h3>
+        <p>Fonction avec tentatives multiples en cas d'erreur serveur :</p>
+        <pre>
+async function fetchWithRetry(url, options = {}, maxRetries = 3) {
+    for (let i = 0; i <= maxRetries; i++) {
+        try {
+            const response = await fetch(url, options);
+            
+            // Si le code est 5xx (Erreur serveur), on leve une erreur pour declencher le catch
+            if (response.status >= 500 && response.status < 600) {
+                throw new Error(`Erreur serveur: ${response.status}`);
             }
-            xhr.send(body.value);
-        })
+            
+            // Sinon on retourne la reponse (même les 4xx)
+            return response;
+            
+        } catch (error) {
+            console.warn(`Tentative ${i + 1} echouee :`, error.message);
+            
+            // Si c'etait la derniere tentative, on propage l'erreur
+            if (i === maxRetries) {
+                throw error;
+            }
+            
+            // Sinon on attend 1 seconde avant la prochaine boucle
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+}</pre>
+    </div>
 
+    <div class="answers">
+        <h2>TP 4 : Analyse des Headers de Securite</h2>
+        
+        <h3>Exercice : Tableau d'analyse</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Site</th>
+                    <th>HSTS</th>
+                    <th>X-Frame</th>
+                    <th>CSP</th>
+                    <th>Note Globale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>github.com</td>
+                    <td>Oui (max-age=31536000; includeSubdomains; preload)</td>
+                    <td>DENY</td>
+                    <td>Oui (default-src 'none'; base-uri 'self'; child-src ...)</td>
+                    <td>A+ (Excellent)</td>
+                </tr>
+                <tr>
+                    <td>google.com</td>
+                    <td>Non</td>
+                    <td>SAMEORIGIN</td>
+                    <td>Non</td>
+                    <td>C (Passable)</td>
+                </tr>
+                <tr>
+                    <td>stackoverflow.com</td>
+                    <td>Non</td>
+                    <td>SAMEORIGIN</td>
+                    <td>Oui (default-src 'none'; script-src 'nonce-...)</td>
+                    <td>B (Bon)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
+    <div class="answers">
+        <h2>Exercices Recapitulatifs</h2>
+        
+        <h3>Exercice 2 : Questions theoriques</h3>
+        <ul>
+            <li><strong>Difference entre no-cache et no-store :</strong><br>
+                <code>no-store</code> indique au navigateur/proxy de ne JAMAIS stocker la ressource. <code>no-cache</code> permet l'enregistrement, mais oblige le navigateur a valider avec le serveur (via ETag/If-None-Match) avant de l'utiliser.
+            </li>
+            <li><strong>Pourquoi POST n'est-il pas idempotent ?</strong><br>
+                Une methode idempotente donne le même resultat sur le serveur si elle est executee une ou plusieurs fois (ex: GET, PUT). Repeter un POST va generalement creer autant de nouvelles ressources (ex: 3 clics sur "Acheter" = 3 commandes creees).
+            </li>
+            <li><strong>Que se passe-t-il si le serveur renvoie 301 ?</strong><br>
+                C'est une redirection permanente. Le navigateur enregistre en cache que l'ancienne URL pointe desormais vers la nouvelle, et il effectue une nouvelle requête automatiquement vers la nouvelle adresse ("Location").
+            </li>
+            <li><strong>a quoi sert le header Origin ?</strong><br>
+                Il indique d'où vient la requête (Protocole + Domaine + Port). Il est principalement utilise par le serveur pour autoriser ou bloquer les requêtes Cross-Origin (CORS).
+            </li>
+            <li><strong>Pourquoi utiliser HttpOnly sur les cookies de session ?</strong><br>
+                Cela empêche le code JavaScript (ex: une attaque XSS reussie) de lire la valeur du cookie (comme le <code>document.cookie</code>). Le navigateur l'envoie de maniere transparente uniquement lors des requêtes HTTP.
+            </li>
+        </ul>
+    </div>
 
-    </script>
+    <div class="answers http-client">
+        <h2>Exercice 1 : Client HTTP minimaliste</h2>
+        <p>Testez des requêtes directement depuis cette page !</p>
+        
+        <div class="form-group">
+            <label>Methode :</label>
+            <select id="req-method">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>URL :</label>
+            <input type="url" id="req-url" value="https://httpbin.org/get" placeholder="https://api.exemple.com/donnees">
+        </div>
+        
+        <div class="form-group">
+            <label>Body (JSON, pour POST/PUT) :</label>
+            <textarea id="req-body" rows="4" placeholder='{"cle": "valeur"}'></textarea>
+        </div>
+        
+        <button onclick="sendRequest()">Envoyer la requête</button>
+        
+        <div id="client-response">
+            <h3>Reponse :</h3>
+            <p><strong>Statut : </strong><span id="res-status"></span></p>
+            <p><strong>Corps :</strong></p>
+            <pre><code id="res-body"></code></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

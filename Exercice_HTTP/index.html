@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP HTTP</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+
+        } 
+        input, select, textarea {
+                margin: 5px;
+                padding: 5px;
+                width: 300px;
+        }
+        button {
+                margin: 5px;
+                padding: 5px 10px;
+            }
+        textarea {
+                height: 150px;
+            }
+        hr {
+                margin: 20px 0;
+            }
+        
+    </style>
+</head>
+<body>
+    <h1>TP HTTP - Réponses et Client</h1>
+
+    <h2>1.4 Codes de statut (Tableau complété)</h2>
+    <table border="1" cellpadding="10" cellspacing="0" style="margin-bottom: 20px; border-collapse: collapse;">
+        <tr style="background-color: #f4f4f4;">
+            <th>URL</th>
+            <th>Méthode</th>
+            <th>Code</th>
+            <th>Content-Type</th>
+        </tr>
+        <tr><td>httpbin.org/get</td><td>GET</td><td style="color: green;">200 OK</td><td>application/json</td></tr>
+        <tr><td>httpbin.org/post</td><td>POST</td><td style="color: green;">200 OK</td><td>application/json</td></tr>
+        <tr><td>httpbin.org/status/201</td><td>GET</td><td style="color: green;">201 Created</td><td>text/html; charset=utf-8</td></tr>
+        <tr><td>httpbin.org/status/200</td><td>GET</td><td style="color: green;">200 OK</td><td>text/html; charset=utf-8</td></tr>
+        <tr><td>httpbin.org/status/404</td><td>GET</td><td style="color: orange;">404 Not Found</td><td>text/html; charset=utf-8</td></tr>
+        <tr><td>httpbin.org/status/500</td><td>GET</td><td style="color: red;">500 Internal Server Error</td><td>text/html; charset=utf-8</td></tr>
+        <tr><td>httpbin.org/redirect/3</td><td>GET</td><td style="color: green;">200 OK (après redirection)</td><td>application/json</td></tr>
+    </table>
+
+    <h2>Exercice 1 : Client HTTP</h2>
+    <form action="" method="post">
+        <select name="methode" id="methode" required>
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+        <input type="text" name="url" id="url" placeholder="Enter URL" required>
+        <button type="submit" id="submit">Envoyer</button>
+        <br>
+        <input type="text" name="HEAderKEy" id="HEAderKEy" placeholder="Header key">
+        <input type="text" name="HeaderValue" id="HeaderValue" placeholder="Header value">
+        <br>
+        <textarea name="Body" id="Body" placeholder="Body JSON (pour POST/PUT)"></textarea>
+        <hr>
+        <textarea name="REsponsebody" id="REsponsebody" placeholder="Response body" readonly></textarea>
+    </form>
+
+    <script>
+        var methode = document.querySelector('#methode');
+        var url = document.querySelector('#url');
+        var headerkey = document.querySelector('#HEAderKEy');
+        var headervalue = document.querySelector('#HeaderValue');
+        var body = document.querySelector('#Body');
+        var responsebody = document.querySelector('#REsponsebody');
+        var form = document.querySelector('form');
+        
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            xhr.open(methode.value, url.value);
+            
+            if (headerkey.value && headervalue.value) {
+                xhr.setRequestHeader(headerkey.value, headervalue.value);
+            }
+            
+            // Pour le JSON par défaut si on envoie un body
+            if (body.value && !headerkey.value) {
+                xhr.setRequestHeader("Content-Type", "application/json");
+            }
+
+            xhr.onload = function(event){
+                let result = "";
+                result += "=== STATUT ===\n" + xhr.status + " " + xhr.statusText + "\n\n";
+                result += "=== HEADERS ===\n" + xhr.getAllResponseHeaders() + "\n";
+                result += "=== BODY ===\n" + xhr.responseText + "\n";
+                
+                responsebody.value = result;
+            }
+            
+            xhr.onerror = function() {
+                responsebody.value = "Erreur réseau (CORS ou URL invalide).";
+            }
+
+            xhr.send(body.value ? body.value : null);
+        });
+    </script>
+</body>
+</html>
