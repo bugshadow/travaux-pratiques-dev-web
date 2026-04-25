@@ -32,6 +32,8 @@ travaux-pratiques-dev-web/
 ├── TP_3/              JavaScript & Interactivité (Site de l'Agence GPM)
 ├── TP_4/              CSS Moderne & Layouts (Sélecteurs, Grid, Flex, Responsive)
 ├── TP_JS/             Exercices JavaScript - Manipulation du DOM
+├── TP_HTTP/           Protocole HTTP - Théorie, cURL, Fetch et Sécurité
+├── Exercice_HTTP/     Client HTTP interactif type "Postman"
 └── README.md          Documentation
 ```
 
@@ -90,6 +92,22 @@ travaux-pratiques-dev-web/
 
 **Technologies :** Vanilla JavaScript, DOM manipulations, Événements.
 
+### [TP HTTP - Le Protocole HTTP & Sécurité](./TP_HTTP/index.html)
+
+**Objectif :** Comprendre l'architecture d'Internet et la sécurisation des requêtes HTTP.
+- **Contenu et réalisation :** Comptes-rendus interactifs sur les DevTools, l'historique des requêtes cURL, et utilisation avancée de l'API Fetch. Analyse des statuts (200, 404, 500) et comportements des requêtes (redirections 301).
+- **Spécificités techniques :** Outils de tests interactifs intégrés à la page pour lancer des appels Fetch réels avec gestion des erreurs asynchrones (`async`/`await`). Analyse automatique des E-Tags, headers CSP et X-Frame-Options d'un site.
+
+**Technologies :** Protocole HTTP, cURL, API Fetch, Headers (HSTS, CSP), Gestion d'erreurs.
+
+### [Exercice HTTP - Client HTTP (Type Postman)](./Exercice_HTTP/index.html)
+
+**Objectif :** Concevoir une interface graphique personnalisée pour interagir avec des API (Client REST).
+- **Contenu et réalisation :** Développement complet d'un mini-outil de test réseau permettant de spécifier des URLs, la méthode d'envoi (GET, POST, PUT, DELETE), avec envoi optionnel de headers personnalisés (Clé/Valeur) et support d'un Body (JSON).
+- **Spécificités techniques :** Contrôle asynchrone complet avec `XMLHttpRequest`, traitement à la volée de codes de réponse (status), extraction de toutes les entêtes (`getAllResponseHeaders()`) et affichage structuré des résultats JSON textuels grâce au DOM dynamique.
+
+**Technologies :** XMLHTTPRequest (AJAX), DOM Dynamique, JavaScript Vanilla.
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -136,6 +154,6 @@ Pour approfondir vos connaissances, consultez :
 
 **Projet créé dans le cadre du cursus en développement web**
 
-Dernière mise à jour: Mars 2026
+Dernière mise à jour: avril 2026
 
 </div>
